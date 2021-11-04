@@ -59,7 +59,7 @@ nnoremap <leader>o :wincmd o<CR>
 nnoremap <leader>cw :wincmd q<CR>
 nnoremap <leader>= :vertical resize +10<CR>
 nnoremap <leader>- :vertical resize -10<CR>
-nnoremap <leader>pv :Vex <bar> :vertical resize 30<CR>
+nnoremap <leader>pv :Lex <bar> :wincmd =<CR>
 
 " visual movements
 vnoremap J :m '>+1<CR>gv=gv
@@ -73,7 +73,7 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bb :buffer 
 
 " netrw
-let g:netrw_browse_split=4
+let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_keepdir=0
 
