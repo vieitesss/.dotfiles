@@ -1,7 +1,7 @@
 packages=(vim curl nodejs)
-for i in packages
+for i in ${packages[@]}
 do
-    echo "installing $i\n"
-    sleep 2
-    sudo apt install $i
+    printf "\nINSTALLING $i\n"
+    sleep 
+    sudo apt install $i -y
 done

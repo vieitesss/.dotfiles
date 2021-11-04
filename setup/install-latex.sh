@@ -1,4 +1,7 @@
-sudo apt install texlive -y
-sudo apt install texlive-full -y
-sudo apt install zathura -y
-sudo apt install latexmk -y
+packages=(textlive texlive-full zathura latexmk)
+for i in ${packages[@]}
+do
+    printf "\nINSTALLING $i\n"
+    sleep 2
+    sudo apt install $i -y
+done

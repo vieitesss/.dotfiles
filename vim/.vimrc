@@ -59,7 +59,7 @@ nnoremap <leader>o :wincmd o<CR>
 nnoremap <leader>cw :wincmd q<CR>
 nnoremap <leader>= :vertical resize +10<CR>
 nnoremap <leader>- :vertical resize -10<CR>
-nnoremap <leader>pv :Lex <bar> :vertical resize 30<CR>
+nnoremap <leader>pv :Vex <bar> :vertical resize 30<CR>
 
 " visual movements
 vnoremap J :m '>+1<CR>gv=gv
@@ -68,6 +68,14 @@ vnoremap K :m '<-2<CR>gv=gv
 " buffer movements
 nnoremap <leader>bp :bprev<CR>
 nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bd :bd<CR>
+" :buffer some_partial_buffer_name
+nnoremap <leader>bb :buffer 
+
+" netrw
+let g:netrw_browse_split=4
+let g:netrw_liststyle=3
+let g:netrw_keepdir=0
 
 " PLUGINS-----
 call plug#begin('~/.vim/plugged' )
@@ -77,7 +85,11 @@ call plug#begin('~/.vim/plugged' )
     Plug 'roxma/vim-hug-neovim-rpc'
 
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-
+    " Activate CoC-----
+    " cd ~/.vim/plugged/coc.nvim
+    " yarn install
+    " yarn build
+    
     Plug 'gruvbox-community/gruvbox'
 
     Plug 'easymotion/vim-easymotion'
