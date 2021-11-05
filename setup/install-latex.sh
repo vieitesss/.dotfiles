@@ -1,4 +1,4 @@
-packages=(textlive texlive-full zathura latexmk)
+packages=(texlive texlive-full zathura latexmk)
 for i in ${packages[@]}
 do
     printf "\nINSTALLING $i\n"

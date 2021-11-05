@@ -81,8 +81,6 @@ let g:netrw_keepdir=0
 call plug#begin('~/.vim/plugged' )
 	Plug 'lervag/vimtex'
     Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
 
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     " Activate CoC-----
