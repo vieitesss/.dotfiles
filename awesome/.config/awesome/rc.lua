@@ -20,7 +20,7 @@ local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
 local menubar       = require("menubar")
---local freedesktop   = require("freedesktop")
+local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -108,7 +108,7 @@ local editor       = "vim"
 local browser      = "google-chrome"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { ":)" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -187,13 +187,22 @@ local myawesomemenu = {
    { "Quit", function() awesome.quit() end },
 }
 
-awful.util.mymainmenu = awful.menu({ items = 
-    {
-        { "Awesome", myawesomemenu, beautiful.awesome_icon },
-        { "Octave", string.format("octave --gui") },
+awful.util.mymainmenu = freedesktop.menu.build {
+    before = {
+        { "Awesome", myawesomemenu, beautiful.awesome_icon},
+    },
+    after = {
         { "Open terminal", terminal },
     }
-})
+}
+
+--awful.util.mymainmenu = awful.menu({ items = 
+--    {
+--        { "Awesome", myawesomemenu, beautiful.awesome_icon },
+--        { "Octave", string.format("octave --gui") },
+--        { "Open terminal", terminal },
+--    }
+--})
 
 -- Hide the menu when the mouse leaves it
 --[[
@@ -447,6 +456,18 @@ globalkeys = mytable.join(
     awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
               {description = "+10%", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+              {description = "-10%", group = "hotkeys"}),
+    awful.key({ modkey }, "=", function () 
+        os.execute("xrandr --output DVI-D-0 --brightness 1") 
+        os.execute("xrandr --output HDMI-0 --brightness 1") 
+        os.execute("xrandr --output DP-0 --brightness 1") 
+    end,
+              {description = "+10%", group = "hotkeys"}),
+    awful.key({ modkey }, "-", function () 
+        os.execute("xrandr --output DVI-D-0 --brightness 0.5") 
+        os.execute("xrandr --output HDMI-0 --brightness 0.7") 
+        os.execute("xrandr --output DP-0 --brightness 0.5") 
+    end,
               {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
