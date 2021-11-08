@@ -756,9 +756,9 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = true }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
+    -- Set Discord to always map on the screen 2.
     { rule = { name = "Discord" },
-      properties = { screen = 1, tag = "3" } },
+      properties = { screen = 3, tag = "1" } },
 }
 
 -- }}}
