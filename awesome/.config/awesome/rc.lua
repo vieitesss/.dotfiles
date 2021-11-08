@@ -110,17 +110,17 @@ awful.util.terminal = terminal
 awful.util.tagnames = { ":)", ":(" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
-    --awful.layout.suit.tile,
+    awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
+    --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    lain.layout.magnifier,
+    --lain.layout.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
@@ -389,7 +389,7 @@ globalkeys = mytable.join(
         {description = "toggle wibox", group = "awesome"}),
 
     -- On-the-fly useless gaps change
-    awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
+    awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
@@ -463,7 +463,7 @@ globalkeys = mytable.join(
     end,
               {description = "+10%", group = "hotkeys"}),
     awful.key({ modkey }, "-", function () 
-        os.execute("xrandr --output DVI-D-0 --brightness 0.5") 
+        os.execute("xrandr --output DVI-D-0 --brightness 0.7") 
         os.execute("xrandr --output HDMI-0 --brightness 0.7") 
         os.execute("xrandr --output DP-0 --brightness 0.5") 
     end,
@@ -807,10 +807,10 @@ client.connect_signal("request::titlebars", function(c)
             layout  = wibox.layout.fixed.horizontal
         },
         { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
+            --{ -- Title
+            --    align  = "center",
+            --    widget = awful.titlebar.widget.titlewidget(c)
+            --},
             buttons = buttons,
             layout  = wibox.layout.flex.horizontal
         },
@@ -827,11 +827,13 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
-end)
+--client.connect_signal("mouse::enter", function(c)
+--    c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- }}}
+
+awful.spawn.with_shell("~/.config/foo.sh")
