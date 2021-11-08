@@ -97,7 +97,6 @@ local themes = {
     "steamburn",       -- 9
     "vertex"           -- 10
 }
-
 local chosen_theme = "powerarrow"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
@@ -108,10 +107,10 @@ local editor       = "vim"
 local browser      = "google-chrome"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { ":)" }
+awful.util.tagnames = { ":)", ":(" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    --awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -121,7 +120,7 @@ awful.layout.layouts = {
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
+    lain.layout.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
@@ -131,7 +130,7 @@ awful.layout.layouts = {
     --lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
     --lain.layout.termfair,
-    lain.layout.termfair.center
+    --lain.layout.termfair.center
 }
 
 lain.layout.termfair.nmaster           = 3
