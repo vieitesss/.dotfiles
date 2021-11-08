@@ -704,6 +704,14 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 
+number_of_screens = 0
+
+awful.screen.connect_for_each_screen(function(s)
+    number_of_screens = number_of_screens + 1
+end)
+
+--naughty.notify({ title = "Number of screens " .. number_of_screens, timeout = 5 })
+
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -758,7 +766,7 @@ awful.rules.rules = {
 
     -- Set Discord to always map on the screen 2.
     { rule = { name = "Discord" },
-      properties = { screen = 3, tag = "1" } },
+      properties = { screen = number_of_screens, tag = "1" } },
 }
 
 -- }}}
