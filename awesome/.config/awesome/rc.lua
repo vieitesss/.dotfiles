@@ -104,7 +104,7 @@ local terminal     = "gnome-terminal"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = "vim"
-local browser      = "google-chrome"
+local browser      = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { ":)", ":(" }
