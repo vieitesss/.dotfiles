@@ -1,4 +1,4 @@
-packages=(vim curl nodejs tmux flameshot)
+packages=(vim curl nodejs tmux flameshot compton)
 for i in ${packages[@]}
 do
     printf "\nINSTALLING $i\n"
