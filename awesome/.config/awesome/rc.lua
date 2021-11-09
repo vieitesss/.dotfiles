@@ -845,3 +845,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.spawn.with_shell("~/.config/foo.sh")
+awful.spawn.with_shell("compton -b")
+awful.util.spawn("flameshot")
