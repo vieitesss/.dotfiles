@@ -186,22 +186,23 @@ local myawesomemenu = {
    { "Quit", function() awesome.quit() end },
 }
 
-awful.util.mymainmenu = freedesktop.menu.build {
-    before = {
-        { "Awesome", myawesomemenu, beautiful.awesome_icon},
-    },
-    after = {
-        { "Open terminal", terminal },
-    }
-}
-
---awful.util.mymainmenu = awful.menu({ items = 
---    {
---        { "Awesome", myawesomemenu, beautiful.awesome_icon },
---        { "Octave", string.format("octave --gui") },
+--awful.util.mymainmenu = freedesktop.menu.build {
+--    before = {
+--        { "Awesome", myawesomemenu, beautiful.awesome_icon},
+--    },
+--    after = {
 --        { "Open terminal", terminal },
 --    }
---})
+--}
+
+awful.util.mymainmenu = awful.menu({ items = 
+    {
+        { "Awesome", myawesomemenu, beautiful.awesome_icon },
+        { "Shut down", "systemctl poweroff" },
+        { "Reboot", "systemctl reboot" },
+        { "Open terminal", terminal },
+    }
+})
 
 -- Hide the menu when the mouse leaves it
 --[[
