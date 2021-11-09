@@ -1,7 +1,7 @@
 # dotfiles
 
-´´´bash
+```bash
 for folder in repo
     stow folder
 done
-´´´
+```
