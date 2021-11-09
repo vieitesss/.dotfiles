@@ -1,7 +1,7 @@
 # dotfiles
 
 ```bash
-for folder in repo
-    stow folder
+for folder in this_repo
+    stow $folder
 done
 ```
