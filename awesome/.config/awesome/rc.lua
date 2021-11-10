@@ -455,7 +455,7 @@ globalkeys = mytable.join(
     -- Screen brightness
     awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
               {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 3") end,
               {description = "-10%", group = "hotkeys"}),
     awful.key({ modkey }, "=", function () 
         os.execute("xrandr --output DVI-D-0 --brightness 1") 
