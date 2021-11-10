@@ -1,9 +1,13 @@
 packages=(vim curl nodejs tmux flameshot compton)
 for i in ${packages[@]}
 do
-    printf "\nINSTALLING $i\n"
-    sleep 2
-    sudo apt install $i -y
+    if hash $i 2>/dev/null; then
+        printf "$i ALREADY EXISTS\n"
+    else
+        printf "\nINSTALLING $i\n"
+        sleep 2
+        sudo apt install $i -y
+    fi
 done
 
 printf "\nINSTALLING vim-plug"
