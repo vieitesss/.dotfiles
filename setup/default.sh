@@ -1,3 +1,5 @@
+#!/bin/bash
+
 packages=(vim curl nodejs tmux flameshot compton)
 for i in ${packages[@]}
 do
