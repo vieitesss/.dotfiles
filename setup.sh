@@ -4,5 +4,5 @@ do
     $file
 done
 
-print "EXECUTE :PlugInstall in vim"
-print "EXECUTE Ctrl+B I in tmux"
+echo "EXECUTE :PlugInstall in vim"
+echo "EXECUTE Ctrl+B I in tmux"
