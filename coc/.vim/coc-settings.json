@@ -1,0 +1,11 @@
+{
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.home": "/opt/jdk-11.0.12/",
+    "java.completion.enabled": true,
+    "java.completion.overwrite": false,
+    "java.completion.guessMethodArguments": true,
+    "java.format.enabled": true,
+    "java.saveActions.organizeImports": true,
+    "java.trace.server": "verbose"
+}
