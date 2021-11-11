@@ -29,7 +29,8 @@ set scrolloff=8
 set autochdir
 " set signcolumn=yes
 
-" set ruler
+" set termguicolors
+set cursorline
 " set colorcolumn=80
 if &term =~ '256color'
     set t_ut=
@@ -89,6 +90,9 @@ call plug#begin('~/.vim/plugged' )
     " yarn build
     
     Plug 'gruvbox-community/gruvbox'
+    Plug 'tomasr/molokai'
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'gosukiwi/vim-atom-dark'
 
     Plug 'easymotion/vim-easymotion'
     Plug 'tpope/vim-fugitive'
@@ -108,12 +112,18 @@ nmap <leader>gs :G<CR>
 nmap <leader>gf :diffget //3<CR>
 nmap <leader>gj :diffget //2<CR>
  
-" Gruvbox
-colorscheme gruvbox
+" Colorscheme
+" colorscheme gruvbox
+colorscheme molokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+" colorscheme onehalfdark
+" colorscheme atom-dark-256
 set background=dark
 
 " Airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme='onehalfdark'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
@@ -125,7 +135,7 @@ let g:vimtex_quickfix_open_on_warning=0
 let g:vimtex_quickfix_mode=2
 let g:vimtex_quickfix_open_on_warning=0
 let g:Tex_IgnoreLevel=8
-
+ 
 " Calculator
 nnoremap <C-c> :call Calc()<CR>
 inoremap <C-c> <ESC>:call Calc()<CR>
