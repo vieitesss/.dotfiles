@@ -5,6 +5,7 @@ set bs=2 " Allow backspacing over everything in insert mode
 set ai                  " Always set auto-indenting on
 set history=50          " keep 50 lines of command history
 set ruler               " Show the cursor position all the time
+set ttimeoutlen=5
 
 set autoindent
 filetype plugin indent on
@@ -139,7 +140,6 @@ let g:Tex_IgnoreLevel=8
 " Calculator
 nnoremap <C-c> :call Calc()<CR>
 inoremap <C-c> <ESC>:call Calc()<CR>
-
 " call deoplete#custom#var('omni', 'input_patterns', {
 "     \ 'tex': g:vimtex#re#deoplete
 "     \})
