@@ -809,9 +809,9 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, { size = 5 }) : setup {
+    awful.titlebar(c, { size = 4 }) : setup {
         { -- Left
-            awful.titlebar.widget.iconwidget(c),
+            --awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
