@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(vim curl nodejs tmux flameshot compton)
+packages=(vim curl nodejs tmux flameshot compton ranger)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then
