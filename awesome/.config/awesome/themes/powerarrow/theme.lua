@@ -319,6 +319,10 @@ function theme.at_screen_connect(s)
     end
     gears.wallpaper.maximized(wallpaper, s, true)
 
+    --Create launcher
+    mylauncher1 = awful.widget.launcher({image = theme.awesome_icon, menu = awful.util.mymainmenu})
+    mylauncher2 = awful.widget.launcher({image = theme.awesome_icon, menu = awful.util.mymainmenu})
+
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
@@ -348,6 +352,8 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             --spr,
+            --mylauncher1,
+            --mylauncher2,
             s.mytaglist,
             s.mypromptbox,
             spr,
