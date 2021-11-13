@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(stow vim curl nodejs tmux flameshot compton ranger)
+packages=(stow vim curl tmux flameshot compton ranger)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then
@@ -11,6 +11,9 @@ do
         sudo apt install $i -y
     fi
 done
+
+printf "\nINSTALLING nodejs"
+curl -sL install-node.vercel.app/lts | bash
 
 printf "\nINSTALLING vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
