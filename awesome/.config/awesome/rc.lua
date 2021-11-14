@@ -100,7 +100,7 @@ local themes = {
 local chosen_theme = "powerarrow"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "gnome-terminal"
+local terminal     = "/home/vieites/.cargo/bin/alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = "vim"
@@ -408,7 +408,7 @@ globalkeys = mytable.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn.with_shell(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
