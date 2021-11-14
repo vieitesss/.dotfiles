@@ -114,8 +114,8 @@ nmap <leader>gf :diffget //3<CR>
 nmap <leader>gj :diffget //2<CR>
  
 " Colorscheme
-" colorscheme gruvbox
-colorscheme molokai
+colorscheme gruvbox
+" colorscheme molokai
 " let g:molokai_original = 1
 " let g:rehash256 = 1
 " colorscheme onehalfdark
