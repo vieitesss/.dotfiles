@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(stow vim curl tmux flameshot compton ranger)
+packages=(stow vim curl flameshot compton fonts-inconsolata)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then
