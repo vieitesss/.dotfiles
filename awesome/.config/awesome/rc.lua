@@ -110,16 +110,16 @@ local browser      = "firefox"
 
 --awful.util.volumecfg = volumecfg
 awful.util.terminal = terminal
-awful.util.tagnames = { ":)", ":(" }
+awful.util.tagnames = { "1" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    --awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
@@ -477,7 +477,7 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "-", function () 
         os.execute("xrandr --output DVI-D-0 --brightness 0.7") 
         os.execute("xrandr --output HDMI-0 --brightness 0.7") 
-        os.execute("xrandr --output DP-0 --brightness 0.5") 
+        os.execute("xrandr --output DP-0 --brightness 0.7") 
     end,
               {description = "-10%", group = "hotkeys"}),
 
