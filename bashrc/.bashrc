@@ -56,21 +56,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CIAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-RESET=$(tput sgr0)
+MAGENTA="\033[1;31m"
+WHITE="\033[1;37m"
+RESET="\033[m"
 
 if [ "$color_prompt" = yes ]; then
    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='\[\033[32m\]\w $ '
 else
-    PS1='${MAGENTA}\w ${RESET}$ '
+    PS1="\[$MAGENTA\]\w \[$RESET\]\$ "
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
