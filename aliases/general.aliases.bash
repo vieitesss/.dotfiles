@@ -14,7 +14,9 @@ alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
 
-alias _="sudo"
+alias s="sudo"
+alias install="sudo apt install"
+alias remove="sudo apt remove"
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"
