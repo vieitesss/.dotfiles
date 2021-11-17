@@ -24,6 +24,7 @@ local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
+--local volume_control = require("volume_control")
 
 -- }}}
 
@@ -105,7 +106,9 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = "vim"
 local browser      = "firefox"
+--local volumecfg = volume_control({})
 
+--awful.util.volumecfg = volumecfg
 awful.util.terminal = terminal
 awful.util.tagnames = { ":)", ":(" }
 awful.layout.layouts = {
@@ -452,6 +455,14 @@ globalkeys = mytable.join(
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
               {description = "show weather", group = "widgets"}),
 
+    -- Volume
+    --awful.key({  }, "XF86AudioRaiseVolume", function () volumecfg:up() end,
+              --{description = "+10%", group = "hotkeys"}),
+    --awful.key({  }, "XF86AudioLowerVolume", function () volumecfg:down() end,
+              --{description = "+10%", group = "hotkeys"}),
+    --awful.key({  }, "XF86AudioMute", function () volumecfg:toggle() end,
+              --{description = "+10%", group = "hotkeys"}),
+
     -- Screen brightness
     awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
               {description = "+10%", group = "hotkeys"}),
@@ -776,5 +787,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("~/.config/foo.sh")
 awful.spawn.with_shell("compton -b")
+awful.spawn.with_shell("~/.config/polybar/launch.sh")
 awful.util.spawn("flameshot")
 awful.spawn.with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
