@@ -1,22 +1,12 @@
-
-if ls --color -d . &> /dev/null
-then
-  alias ls="ls --color=auto"
-elif ls -G -d . &> /dev/null
-then
-  alias ls='ls -G'        # Compact view, show colors
-fi
-
 # List directory contents
+alias ls='exa -l --group-directories-first'
 alias sl=ls
-alias la='ls -AF'       # Compact view, show hidden
-alias ll='ls -al'
-alias l='ls -a'
-alias l1='ls -1'
+alias la='exa -al --group-directories-first'       # Compact view, show hidden
 
 alias s="sudo"
 alias install="sudo apt install"
 alias remove="sudo apt remove"
+alias find="sudo find . -iname" #search from current directory
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"

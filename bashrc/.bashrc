@@ -144,5 +144,5 @@ source "$DOTFILES/aliases/git.aliases.bash"
 # Load Bash It
 #source "$BASH_IT"/bash_it.sh
 
-export PATH=$PATH:/opt/jdk-11.0.12/bin
+export PATH=$PATH:/opt/jdk-11.0.12/bin:/home/$USER/.config/vifm/scripts/
 . "$HOME/.cargo/env"
