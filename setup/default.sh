@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(stow vim curl tmux flameshot compton fonts-inconsolata npm)
+packages=(stow vim curl tmux flameshot compton fonts-inconsolata npm exa)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then
