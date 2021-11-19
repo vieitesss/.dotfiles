@@ -7,6 +7,7 @@ alias s="sudo"
 alias install="sudo apt install"
 alias remove="sudo apt remove"
 alias find="sudo find . -iname" #search from current directory
+alias dot="cd $DOTFILES"
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"
