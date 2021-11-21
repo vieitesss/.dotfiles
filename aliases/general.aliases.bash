@@ -11,7 +11,7 @@ alias dot="cd $DOTFILES"
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"
-alias vbpf="vim ~/.bash_profile"
+alias vrc="vim ~/.vimrc"
 
 # colored grep
 # Need to check an existing file for a pattern that will be found to ensure
@@ -57,6 +57,10 @@ alias rd='rmdir'
 
 # Shorten extract
 alias xt="extract"
+
+# editors
+alias vim="nvim"
+alias v="nvim"
 
 # sudo editors
 alias svim="sudo vim"

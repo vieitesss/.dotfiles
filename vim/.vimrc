@@ -25,6 +25,7 @@ set shiftround
 set backspace=indent,eol,start
 set hidden
 set laststatus=2
+set guicursor=i:block
 
 set scrolloff=8
 set autochdir
@@ -82,6 +83,7 @@ let g:netrw_keepdir=0
 " PLUGINS-----
 call plug#begin('~/.vim/plugged' )
 	Plug 'lervag/vimtex'
+
     Plug 'Shougo/deoplete.nvim'
 
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
@@ -89,6 +91,9 @@ call plug#begin('~/.vim/plugged' )
     " cd ~/.vim/plugged/coc.nvim
     " yarn install
     " yarn build
+
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
     
     Plug 'gruvbox-community/gruvbox'
     Plug 'tomasr/molokai'
@@ -149,4 +154,3 @@ set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
 
 set nomodeline
 syntax on
-autocmd BufRead APKBUILD set filetype=sh
