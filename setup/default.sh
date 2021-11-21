@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(stow vim curl tmux flameshot compton fonts-inconsolata npm exa poppler-utils fd-find vifm rofi)
+packages=(stow vim curl tmux flameshot compton fonts-inconsolata npm exa poppler-utils fd-find vifm rofi tty-clock)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then

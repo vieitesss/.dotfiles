@@ -106,6 +106,7 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = "vim"
 local browser      = "firefox"
+local discord      = "/opt/Discord/Discord"
 --local volumecfg = volume_control({})
 
 --awful.util.volumecfg = volumecfg
@@ -278,46 +279,18 @@ globalkeys = mytable.join(
     -- Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "hotkeys"}),
-    -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
---    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
---              {description = "take a screenshot", group = "hotkeys"}),
 
-    -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
-              {description = "lock screen", group = "hotkeys"}),
+    --awful.key({  })
 
     -- Show help
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-
-    -- Tag browsing
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
 
     -- Non-empty tag browsing
     awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
               {description = "view  previous nonempty", group = "tag"}),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
               {description = "view  previous nonempty", group = "tag"}),
-
-    -- Default client focus
---    awful.key({ altkey,           }, "j",
---        function ()
---            awful.client.focus.byidx( 1)
---        end,
---        {description = "focus next by index", group = "client"}
---    ),
---    awful.key({ altkey,           }, "k",
---        function ()
---            awful.client.focus.byidx(-1)
---        end,
---        {description = "focus previous by index", group = "client"}
---    ),
 
     -- By-direction client focus
     awful.key({ modkey }, "j",
@@ -362,12 +335,6 @@ globalkeys = mytable.join(
               {description = "decrease master width factor"}),
     awful.key({ altkey,           }, "l", function() awful.tag.incmwfact(0.05) end,
               {description = "increase master width factor"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
         function ()
             if cycle_prev then
@@ -381,34 +348,11 @@ globalkeys = mytable.join(
         end,
         {description = "cycle with previous/go back", group = "client"}),
 
-    -- Show/hide wibox
-    awful.key({ modkey }, "b", function ()
-            for s in screen do
-                s.mywibox.visible = not s.mywibox.visible
-                if s.mybottomwibox then
-                    s.mybottomwibox.visible = not s.mybottomwibox.visible
-                end
-            end
-        end,
-        {description = "toggle wibox", group = "awesome"}),
-
     -- On-the-fly useless gaps change
     awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
-
-    -- Dynamic tagging
-    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
-              {description = "add new tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
-              {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
-              {description = "move tag to the left", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
-              {description = "move tag to the right", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
-              {description = "delete tag", group = "tag"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn.with_shell(terminal) end,
@@ -417,23 +361,10 @@ globalkeys = mytable.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
-    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-              {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-              {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
-              {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-              {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-              {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-              {description = "select previous", group = "layout"}),
+    awful.key({ modkey,           }, "q", function() awful.spawn.with_shell("~/.config/polybar/forest/scripts/powermenu.sh") end,
+              {description = "quit awesome", group = "awesome"}),
+    awful.key({ altkey,           }, "a", function() awful.spawn.with_shell(string.format("%s -e %s %s", terminal, editor, awesome.conffile)) end,
+              {desciption = "open awesome rc.lua", group = "awesome"}),
 
     awful.key({ modkey, "Control" }, "n", function ()
         local c = awful.client.restore()
@@ -443,25 +374,9 @@ globalkeys = mytable.join(
         end
     end, {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "launcher"}),
-
     -- Widgets popups
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
               {description = "show calendar", group = "widgets"}),
-    awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-              {description = "show filesystem", group = "widgets"}),
-    awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
-              {description = "show weather", group = "widgets"}),
-
-    -- Volume
-    --awful.key({  }, "XF86AudioRaiseVolume", function () volumecfg:up() end,
-              --{description = "+10%", group = "hotkeys"}),
-    --awful.key({  }, "XF86AudioLowerVolume", function () volumecfg:down() end,
-              --{description = "+10%", group = "hotkeys"}),
-    --awful.key({  }, "XF86AudioMute", function () volumecfg:toggle() end,
-              --{description = "+10%", group = "hotkeys"}),
 
     -- Screen brightness
     awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
@@ -489,11 +404,15 @@ globalkeys = mytable.join(
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+    awful.key({ modkey }, "d", function () awful.spawn.with_shell(discord) end,
+              {description = "run discord", group = "launcher"}),
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
 
     -- Default
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    --awful.key({ modkey }, "p", function() menubar.show() end,
+              --{description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey }, "p", function() awful.spawn.with_shell("~/.config/polybar/forest/scripts/launcher.sh") end,
               {description = "show the menubar", group = "launcher"}),
     --[[dmenu
     awful.key({ modkey }, "x", function ()
@@ -786,7 +705,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.spawn.with_shell("~/.config/screen_layout.sh")
+awful.spawn.with_shell("~/.screensaver.sh")
 awful.spawn.with_shell("compton -b")
 awful.spawn.with_shell("~/.config/polybar/launch.sh --forest")
 awful.util.spawn("flameshot")
 awful.spawn.with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
+awful.spawn.with_shell("amixer -c 0 set Capture 30DB")
