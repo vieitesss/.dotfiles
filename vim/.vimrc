@@ -84,8 +84,6 @@ let g:netrw_keepdir=0
 call plug#begin('~/.vim/plugged' )
 	Plug 'lervag/vimtex'
 
-    Plug 'Shougo/deoplete.nvim'
-
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     " Activate CoC-----
     " cd ~/.vim/plugged/coc.nvim
@@ -94,6 +92,9 @@ call plug#begin('~/.vim/plugged' )
 
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     
     Plug 'gruvbox-community/gruvbox'
     Plug 'tomasr/molokai'
@@ -132,6 +133,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='onehalfdark'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Latex
 let g:latex_view_general_viewer="zathura"
