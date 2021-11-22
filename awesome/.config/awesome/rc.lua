@@ -605,7 +605,9 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer",
+          "Gnome-control-center",
+          "Org.gnome.Nautilus"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -704,10 +706,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
-awful.spawn.with_shell("~/.config/screen_layout.sh")
-awful.spawn.with_shell("~/.screensaver.sh")
-awful.spawn.with_shell("compton -b")
+awful.spawn.with_shell("~/.config/awesome/initawesome.sh")
+-- Para que quede bien la polybar hay que llamarla desde aquí
 awful.spawn.with_shell("~/.config/polybar/launch.sh --forest")
-awful.util.spawn("flameshot")
-awful.spawn.with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
-awful.spawn.with_shell("amixer -c 0 set Capture 30DB")
