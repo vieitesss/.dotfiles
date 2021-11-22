@@ -147,4 +147,6 @@ source "$DOTFILES/aliases/git.aliases.bash"
 export PATH=$PATH:/opt/jdk-11.0.12/bin:/home/$USER/.config/vifm/scripts/
 . "$HOME/.cargo/env"
 
+colorscript random
+
 eval "$(starship init bash)"

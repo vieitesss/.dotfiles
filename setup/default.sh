@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=(stow vim curl tmux flameshot compton fonts-inconsolata npm exa poppler-utils fd-find vifm rofi tty-clock)
+packages=(stow vim neovim curl nodejs tmux flameshot compton fonts-inconsolata npm exa fd-find rofi tty-clock polybar)
 for i in ${packages[@]}
 do
     if hash $i 2>/dev/null; then
@@ -12,11 +12,16 @@ do
     fi
 done
 
-printf "\nINSTALLING nodejs"
-curl -sL install-node.vercel.app/lts | bash
+if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+    printf "\nINSTALLING vim-plug"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+    printf "vim-plug ALREADY EXISTS"
+fi
 
-printf "\nINSTALLING vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-printf "\nINSTALLING tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    printf "\nINSTALLING tmux plugin manager\n"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    printf "tpm ALREADY EXISTS\n"
+fi
