@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "INSTALLING colorscript"
 
 git clone https://gitlab.com/dwtl/shell-color-scripts.git
