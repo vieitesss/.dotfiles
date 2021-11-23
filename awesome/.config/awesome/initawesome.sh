@@ -4,5 +4,5 @@
 ~/.screensaver.sh
 compton -b
 flameshot
+amixer set Capture 100%
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
-amixer -c 0 set Capture 60DB
