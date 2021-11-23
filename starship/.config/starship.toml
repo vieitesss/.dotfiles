@@ -1,0 +1,23 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[line_break]
+disabled = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Directory
+[directory]
+read_only = "🔒"
+read_only_style = "yellow"
+
+# Command duration
+[cmd_duration]
+disabled = true
+
+# Disable the package module, hiding it from the prompt completely
+[nodejs]
+disabled = true
