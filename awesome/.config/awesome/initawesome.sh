@@ -1,4 +1,4 @@
-~/.config/screen_layout.sh
+~/.screen_layout.sh
 ~/.screensaver.sh
 compton -b
 flameshot
