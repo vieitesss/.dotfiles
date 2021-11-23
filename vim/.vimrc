@@ -49,6 +49,9 @@ endif
 :nmap <Leader>wq :wq<CR>
 :nmap <Leader>q :q<CR>
 
+" Exit visual mode
+vnoremap oo <ESC>
+
 " window movements
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
