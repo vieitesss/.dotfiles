@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ~/.screen_layout.sh
 ~/.screensaver.sh
 compton -b
