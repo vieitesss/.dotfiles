@@ -38,6 +38,36 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+" PLUGINS-----
+call plug#begin('~/.vim/plugged' )
+	Plug 'lervag/vimtex'
+
+    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    
+    Plug 'gruvbox-community/gruvbox'
+    Plug 'tomasr/molokai'
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'gosukiwi/vim-atom-dark'
+
+    Plug 'easymotion/vim-easymotion'
+    Plug 'tpope/vim-fugitive'
+
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'Spenny1068/ciBracket'
+    Plug 'tpope/vim-surround'
+
+    Plug 'theniceboy/vim-calc'
+call plug#end()
+
 " Edit vimrc
 :nmap <Leader>ve :e $MYVIMRC<CR>
 " Reload vimrc
@@ -82,40 +112,6 @@ nnoremap <leader>bb :buffer
 let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_keepdir=0
-
-" PLUGINS-----
-call plug#begin('~/.vim/plugged' )
-	Plug 'lervag/vimtex'
-
-    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-    " Activate CoC-----
-    " cd ~/.vim/plugged/coc.nvim
-    " yarn install
-    " yarn build
-
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    
-    Plug 'gruvbox-community/gruvbox'
-    Plug 'tomasr/molokai'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
-    Plug 'gosukiwi/vim-atom-dark'
-
-    Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-fugitive'
-
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'Spenny1068/ciBracket'
-    Plug 'tpope/vim-surround'
-
-    Plug 'theniceboy/vim-calc'
-call plug#end()
  
 " Git
 nmap <leader>gs :G<CR>
@@ -155,11 +151,7 @@ let g:Tex_IgnoreLevel=8
 " Calculator
 nnoremap <C-c> :call Calc()<CR>
 inoremap <C-c> <ESC>:call Calc()<CR>
-" call deoplete#custom#var('omni', 'input_patterns', {
-"     \ 'tex': g:vimtex#re#deoplete
-"     \})
 
-" When doing tab completion, give the following files lower priority.
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
 
 set nomodeline
