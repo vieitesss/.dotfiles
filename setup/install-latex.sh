@@ -1,13 +1,19 @@
 #!/bin/bash
 
-packages=(texlive texlive-full zathura latexmk)
-for i in ${packages[@]}
+declare -A packages=(
+["texlive"]="tex"
+["texlive-full"]="tex"
+["zathura"]="zathura"
+["latexmk"]="latexmk"
+)
+for i in ${!packages[@]}
 do
-    if hash $i 2>/dev/null; then
-        printf "$i ALREADY EXISTS"
-    else
+    existe=$(which ${packages[$i]})
+    if [[ -z $existe ]]; then
         printf "\nINSTALLING $i\n"
         sleep 2
-        sudo apt install $i -y
+        sudo apt install ${packages[$i]} -y
+    else
+        printf "%-13s ALREADY EXISTS\n" "$i"
     fi
 done

@@ -1,6 +1,8 @@
-for file in ./setup/*
+#!/bin/bash
+
+for file in $DOTFILES/setup/*;
 do
-    echo "\nEXECUTING FILE $file\n"
+    printf "\nEXECUTING FILE $file\n"
     $file
 done
 
