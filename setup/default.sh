@@ -34,9 +34,10 @@ do
     fi
 done
 
-if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+if [[ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
     printf "\nINSTALLING vim-plug"
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 else
     installed "vim-plug"
 fi
