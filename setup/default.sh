@@ -4,7 +4,6 @@
 declare -A packages=(
 ["stow"]="stow" 
 ["vim"]="vim" 
-["neovim"]="nvim" 
 ["curl"]="curl"
 ["nodejs"]="nodejs" 
 ["tmux"]="tmux"
@@ -33,6 +32,13 @@ do
         installed "$i"
     fi
 done
+
+if [[ -z $(which nvim) ]]; then
+    wget "https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage"
+    sudo mv nvim.appimage /usr/local/bin/nvim
+else
+    installed "nvim 0.5"
+fi
 
 if [[ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
     printf "\nINSTALLING vim-plug"
