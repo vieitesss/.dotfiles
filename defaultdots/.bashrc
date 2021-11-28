@@ -136,7 +136,9 @@ export TODO="t"
 # Set this to false to turn off version control status checking within the prompt for all themes
 export SCM_CHECK=true
 
+export JAVA_HOME="/opt/jdk-11.0.12"
 export DOTFILES="/home/$USER/.dotfiles"
+export PATH=$PATH:$JAVA_HOME/bin:/home/$USER/.config/vifm/scripts/
 
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"
@@ -144,7 +146,6 @@ source "$DOTFILES/aliases/git.aliases.bash"
 # Load Bash It
 #source "$BASH_IT"/bash_it.sh
 
-export PATH=$PATH:/opt/jdk-11.0.12/bin:/home/$USER/.config/vifm/scripts/
 . "$HOME/.cargo/env"
 
 colorscript random

@@ -1,5 +1,6 @@
 {
     "codeLens.enable": true,
+    "java.enabled": true,
     "java.referencesCodeLens.enabled": true,
     "java.home": "/opt/jdk-11.0.12/",
     "java.completion.enabled": true,
@@ -7,5 +8,7 @@
     "java.completion.guessMethodArguments": true,
     "java.format.enabled": true,
     "java.saveActions.organizeImports": true,
-    "java.trace.server": "verbose"
+    "java.trace.server": "verbose",
+    "sh.enable": true,
+    "json.enable": true
 }

@@ -88,26 +88,18 @@ call plug#begin('~/.local/share/nvim/plugged' )
 	Plug 'lervag/vimtex'
 
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-    " Activate CoC-----
-    " cd ~/.vim/plugged/coc.nvim
-    " yarn install
-    " yarn build
-
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'ervandew/supertab'
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     
     Plug 'morhetz/gruvbox'
-    Plug 'tomasr/molokai'
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
-    Plug 'gosukiwi/vim-atom-dark'
 
     Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-fugitive'
 
+    Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
@@ -123,11 +115,6 @@ nmap <leader>gj :diffget //2<CR>
  
 " Colorscheme
 colorscheme gruvbox
-" colorscheme molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-" colorscheme onehalfdark
-" colorscheme atom-dark-256
 set background=dark
 
 " Airline
@@ -136,13 +123,10 @@ let g:airline_theme='onehalfdark'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
-" Tab
-let g:SuperTabDefaultCompletionType="<c-n>"
-
 " Snippets
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Coc
@@ -165,17 +149,6 @@ nmap <leader>f <Plug>(coc-format-selected)
 " applying codeAction to the selected region
 xmap <leader>a <Plug>(coc-codeaction)
 nmap <leader>a <Plug>(coc-codeaction)
-" snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" function! s:check_back_space() abort
-"     let col = col('.') = 1
-"     return !col || getline('.')[col - 1] =~# '\s'
-" endfunction
 
 " Java
 nnoremap <leader>jr :vsplit term://java %<CR>
@@ -188,13 +161,6 @@ let g:vimtex_quickfix_open_on_warning=0
 let g:vimtex_quickfix_mode=2
 let g:vimtex_quickfix_open_on_warning=0
 let g:Tex_IgnoreLevel=8
- 
-" Calculator
-nnoremap <C-c> :call Calc()<CR>
-inoremap <C-c> <ESC>:call Calc()<CR>
-" call deoplete#custom#var('omni', 'input_patterns', {
-"     \ 'tex': g:vimtex#re#deoplete
-"     \})
 
 " When doing tab completion, give the following files lower priority.
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
