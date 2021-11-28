@@ -84,7 +84,7 @@ let g:netrw_liststyle=3
 let g:netrw_keepdir=0
 
 " PLUGINS-----
-call plug#begin('~/.vim/plugged' )
+call plug#begin('~/.local/share/nvim/plugged' )
 	Plug 'lervag/vimtex'
 
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
@@ -95,11 +95,12 @@ call plug#begin('~/.vim/plugged' )
 
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'ervandew/supertab'
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     
-    Plug 'gruvbox-community/gruvbox'
+    Plug 'morhetz/gruvbox'
     Plug 'tomasr/molokai'
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
     Plug 'gosukiwi/vim-atom-dark'
@@ -113,8 +114,6 @@ call plug#begin('~/.vim/plugged' )
     Plug 'jiangmiao/auto-pairs'
     Plug 'Spenny1068/ciBracket'
     Plug 'tpope/vim-surround'
-
-    Plug 'theniceboy/vim-calc'
 call plug#end()
  
 " Git
@@ -137,11 +136,49 @@ let g:airline_theme='onehalfdark'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
+" Tab
+let g:SuperTabDefaultCompletionType="<c-n>"
+
 " Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+
+" Coc
+" auto-select the first completion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() 
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" renaming
+nmap <leader>rn <Plug>(coc-rename)
+" formatting selected code
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+" applying codeAction to the selected region
+xmap <leader>a <Plug>(coc-codeaction)
+nmap <leader>a <Plug>(coc-codeaction)
+" snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" function! s:check_back_space() abort
+"     let col = col('.') = 1
+"     return !col || getline('.')[col - 1] =~# '\s'
+" endfunction
+
+" Java
+nnoremap <leader>jr :vsplit term://java %<CR>
 
 " Latex
 let g:latex_view_general_viewer="zathura"
