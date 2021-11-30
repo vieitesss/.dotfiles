@@ -564,11 +564,15 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 
-number_of_screens = 0
+local number_of_screens = 0
 
 awful.screen.connect_for_each_screen(function(s)
     number_of_screens = number_of_screens + 1
 end)
+
+if number_of_screens > 1 then
+    number_of_screens = 2
+end
 
 --naughty.notify({ title = "Number of screens " .. number_of_screens, timeout = 5 })
 

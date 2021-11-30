@@ -1,5 +1,6 @@
 let mapleader=" "
 
+set encoding=UTF-8
 set nocompatible " Use Vim defaults (much better!)
 set bs=2 " Allow backspacing over everything in insert mode
 set ai                  " Always set auto-indenting on
@@ -106,6 +107,7 @@ call plug#begin('~/.local/share/nvim/plugged' )
     Plug 'jiangmiao/auto-pairs'
     Plug 'Spenny1068/ciBracket'
     Plug 'tpope/vim-surround'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
  
 " Git

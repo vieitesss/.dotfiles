@@ -33,11 +33,12 @@ do
     fi
 done
 
-if [[ -z $(which nvim) ]]; then
-    wget "https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage"
+if [[ -z $(which nvim) || $(nvim --version | head -n 1) != "NVIM v0.5.1" ]]; then
+    wget "https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage"
+    chmod u+x nvim.appimage
     sudo mv nvim.appimage /usr/local/bin/nvim
 else
-    installed "nvim 0.5"
+    installed "nvim 0.5.1"
 fi
 
 if [[ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
