@@ -138,7 +138,7 @@ export SCM_CHECK=true
 
 export JAVA_HOME="/opt/jdk-11.0.12"
 export DOTFILES="/home/$USER/.dotfiles"
-export PATH=$PATH:$JAVA_HOME/bin:/home/$USER/.config/vifm/scripts/
+export PATH=$PATH:/opt/jdk-11.0.12/bin
 
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"

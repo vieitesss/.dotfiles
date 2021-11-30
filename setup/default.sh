@@ -4,6 +4,7 @@
 declare -A packages=(
 ["stow"]="stow" 
 ["vim"]="vim" 
+["lua5.3"]="lua5.3" 
 ["curl"]="curl"
 ["nodejs"]="nodejs" 
 ["tmux"]="tmux"
@@ -41,10 +42,10 @@ else
     installed "nvim 0.5.1"
 fi
 
-if [[ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
-    printf "\nINSTALLING vim-plug"
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+    printf "\nINSTALLING packer"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvimelse
 else
     installed "vim-plug"
 fi

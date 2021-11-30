@@ -7,11 +7,11 @@ global.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
 
 -- Indent
-buffer.autoindent = true
-buffer.expandtab = true
-buffer.tabstop = 4
-buffer.softtabstop = 4
-buffer.shiftwidth = 4
+global.autoindent = true
+global.expandtab = true
+global.tabstop = 4
+global.softtabstop = 4
+global.shiftwidth = 4
 global.shiftround = true
 
 -- Block when insert
@@ -33,3 +33,9 @@ global.mouse = "a"
 
 -- Read files always
 global.autoread = true
+
+-- Syntax
+buffer.syntax = "ON"
+
+-- Time to complete key code sequence
+global.ttimeoutlen = 5

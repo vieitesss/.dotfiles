@@ -1,3 +1,8 @@
-require('plugins')
+require('plugs')
 require('keymaps')
 require('configs')
+
+-- Plugins config
+require('plugins/lualine')
+require('plugins/cmp')
+require('plugins/luasnip')
