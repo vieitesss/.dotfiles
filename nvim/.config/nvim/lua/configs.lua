@@ -39,3 +39,6 @@ buffer.syntax = "ON"
 
 -- Time to complete key code sequence
 global.ttimeoutlen = 5
+
+-- Hidden
+global.hidden = true

@@ -12,10 +12,9 @@ return require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
-    use 'mfussenegger/nvim-jdtls'
+    use 'L3MON4D3/LuaSnip'
 end)
