@@ -42,3 +42,6 @@ global.ttimeoutlen = 5
 
 -- Hidden
 global.hidden = true
+
+-- Clipboard
+global.clipboard = "unnamedplus"

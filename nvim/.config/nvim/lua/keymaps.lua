@@ -2,7 +2,6 @@ local keymap = vim.api.nvim_set_keymap
 local ns = { noremap = true, silent = true }
 local n = { noremap = true }
 local s = { silent = true }
- 
 vim.g.mapleader = ' '
 
 ----- Normal -----
@@ -39,8 +38,28 @@ keymap('n', '<Leader>ve', ':e ~/.config/nvim/init.lua<CR>', s)
 -- reload file
 keymap('n', '<Leader>rf', ':so %<CR>', s)
 
+-- lsp
+keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', ns)
+keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', ns)
+keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', ns)
+keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', ns)
+keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', ns)
+keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', ns)
+keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', ns)
+keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', ns)
+keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', ns)
+keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', ns)
+keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', ns)
+keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', ns)
+keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', ns)
+keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', ns)
+keymap('n', '<space>dl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', ns)
+keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', ns)
+
+
 ----- Insert -----
 ------------------
+-- quit
 keymap('i', 'jk', '<Esc>', {})
 
 ----- Visual -----
