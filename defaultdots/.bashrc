@@ -136,9 +136,19 @@ export TODO="t"
 # Set this to false to turn off version control status checking within the prompt for all themes
 export SCM_CHECK=true
 
-export JAVA_HOME="/opt/jdk-11.0.12"
 export DOTFILES="/home/$USER/.dotfiles"
-export PATH=$PATH:/opt/jdk-11.0.12/bin
+
+if [[ -d /opt/jdk-11.0.12 ]]; then
+    export JAVA_HOME="/opt/jdk-11.0.12"
+    PATH+=:$JAVA_HOME/bin
+fi
+
+if [[ -d /opt/ltex-ls-15.2.0 ]]; then
+    export LTEX_HOME="/opt/ltex-ls-15.2.0"
+    PATH+=:$LTEX_HOME/bin
+fi
+
+export PATH
 
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"
