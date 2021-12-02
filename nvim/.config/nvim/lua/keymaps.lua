@@ -12,6 +12,9 @@ keymap('n', '<Leader>w', ':w<CR>', {})
 keymap('n', '<Leader>q', ':q<CR>', {})
 keymap('n', '<Leader>wq', ':wq<CR>', {})
 
+-- no highlight
+keymap('n', '<Leader>no', ':noh<CR>', ns)
+
 -- window movements
 keymap('n', '<Leader>h', ':wincmd h<CR>', n)
 keymap('n', '<Leader>j', ':wincmd j<CR>', n)
@@ -57,7 +60,11 @@ keymap('n', '<space>dl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', ns)
 keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', ns)
 
 -- nvim-tree
-keymap('n', '<Leader>ot', ':NvimTreeToggle<CR>', ns)
+keymap('n', '<Leader>pv', ':NvimTreeToggle<CR>', ns)
+
+-- telescope
+keymap('n', '<Leader>ff', ':Telescope', n)
+keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<CR>]], ns)
 
 ----- Insert -----
 ------------------

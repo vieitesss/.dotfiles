@@ -51,4 +51,9 @@ cmp.setup {
         { name = 'vsnip' },
         { name = 'nvim_lsp'},
     },
+
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    },
 }
