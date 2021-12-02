@@ -56,6 +56,8 @@ keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', ns)
 keymap('n', '<space>dl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', ns)
 keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', ns)
 
+-- nvim-tree
+keymap('n', '<Leader>ot', ':NvimTreeToggle<CR>', ns)
 
 ----- Insert -----
 ------------------

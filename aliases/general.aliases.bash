@@ -62,6 +62,7 @@ alias xt="extract"
 # editors
 alias vim="nvim"
 alias v="nvim"
+alias py="python3.9"
 
 # sudo editors
 alias svim="sudo vim"
