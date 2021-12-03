@@ -87,3 +87,6 @@ catt() {
 # bash-it enable alias bash-it
 # shellcheck source=./bash-it.aliases.bash
 #source "$BASH_IT/aliases/available/bash-it.aliases.bash"
+alias lazygit='go run /opt/lazygit/main.go'
+alias lazygit='go run /opt/lazygit/main.go'
+alias lazygit='go run /opt/lazygit/main.go'

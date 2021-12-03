@@ -148,6 +148,11 @@ if [[ -d /opt/ltex-ls-15.2.0 ]]; then
     PATH+=:$LTEX_HOME/bin
 fi
 
+if [[ -d /usr/local/go ]]; then
+    export GO_HOME="/usr/local/go"
+    PATH+=:$GO_HOME/bin
+fi
+
 export PATH
 
 source "$DOTFILES/aliases/general.aliases.bash"
@@ -158,6 +163,10 @@ source "$DOTFILES/aliases/git.aliases.bash"
 
 . "$HOME/.cargo/env"
 
-colorscript random
+if [[ ! -z $(which colorscript) ]]; then
+    colorscript random
+fi
 
-eval "$(starship init bash)"
+if [[ ! -z $(which starship) ]]; then
+    eval "$(starship init bash)"
+fi

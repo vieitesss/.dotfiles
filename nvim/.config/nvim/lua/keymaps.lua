@@ -83,3 +83,6 @@ keymap('v', 'oo', '<Esc>', {})
 -- move lines
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', n)
 keymap('v', 'K', ':m \'>-2<CR>gv=gv', n)
+
+-- copy
+keymap('x', '<C-c>', [["+y]], s)
