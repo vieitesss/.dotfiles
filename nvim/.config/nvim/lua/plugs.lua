@@ -26,4 +26,6 @@ return require('packer').startup(function()
             'nvim-telescope/telescope-fzy-native.nvim'
         }
     }
+    use 'tami5/lspsaga.nvim'
+    use 'kdheepak/lazygit.nvim'
 end)

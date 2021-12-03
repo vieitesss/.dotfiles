@@ -41,6 +41,9 @@ keymap('n', '<Leader>ve', ':e ~/.config/nvim/init.lua<CR>', s)
 -- reload file
 keymap('n', '<Leader>rf', ':so %<CR>', s)
 
+-- packer
+keymap('n', '<Leader>ps', ':PackerSync<CR>', n)
+
 -- lsp
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', ns)
 keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', ns)
