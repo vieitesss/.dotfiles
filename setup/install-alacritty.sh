@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [[ -z $(which alacritty) ]]; then
+    printf "\nINSTALLING alacritty\n"
     #Alacritty installer
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     rustup override set stable
@@ -21,4 +22,13 @@ if [[ -z $(which alacritty) ]]; then
     sudo update-desktop-database
 else
     printf "%-10s ALREADY INSTALLED\n" "alacritty"
+fi
+
+# also install starship
+
+if [[ -z $(which starship) ]]; then
+    printf "\nINSTALLING starship\n"
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+else
+    printf "%-10s ALREADY INSTALLED\n" "starship"
 fi
