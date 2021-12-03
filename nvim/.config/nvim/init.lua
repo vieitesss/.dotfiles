@@ -4,6 +4,7 @@ require('configs')
 
 -- Plugins config
 require('plugins/lualine')
+require('plugins/autopairs')
 require('plugins/lsp')
 require('plugins/cmp')
 require('plugins/treesitter')

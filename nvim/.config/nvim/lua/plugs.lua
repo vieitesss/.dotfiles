@@ -1,13 +1,8 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 	use 'morhetz/gruvbox'
-	use {
-        'windwp/nvim-autopairs',
-        config = function()
-            require'nvim-autopairs'.setup()
-        end
-	}
-	use{
+	use 'windwp/nvim-autopairs'
+    use{
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
