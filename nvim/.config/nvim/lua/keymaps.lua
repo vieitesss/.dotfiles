@@ -69,6 +69,12 @@ keymap('n', '<Leader>pv', ':NvimTreeToggle<CR>', ns)
 keymap('n', '<Leader>ff', ':Telescope', n)
 keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<CR>]], ns)
 
+-- java
+keymap('n', '<Leader>jr', ':vsplit term://java %<CR>', ns)
+
+-- python
+keymap('n', '<Leader>pr', ':vsplit term://python3 %<CR>', ns)
+
 ----- Insert -----
 ------------------
 -- quit

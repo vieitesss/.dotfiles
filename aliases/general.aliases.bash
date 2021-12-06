@@ -35,9 +35,11 @@ alias q='exit'
 alias irc="${IRC_CLIENT:=irc}"
 
 # Language aliases
-alias rb='ruby'
-alias py='python'
-alias ipy='ipython'
+alias j='java'
+alias py='python3.9'
+
+# jupyter notebook
+alias notebook="python3 -m notebook"
 
 # Pianobar can be found here: http://github.com/PromyLOPh/pianobar/
 
@@ -62,7 +64,6 @@ alias xt="extract"
 # editors
 alias vim="nvim"
 alias v="nvim"
-alias py="python3.9"
 
 # sudo editors
 alias svim="sudo vim"
