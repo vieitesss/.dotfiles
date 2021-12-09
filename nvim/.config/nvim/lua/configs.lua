@@ -22,7 +22,7 @@ window.number = true
 window.relativenumber = true
 
 -- Lines to edges
-window.scrolloff = 8
+global.scrolloff = 8
 
 -- Cursor
 window.cursorline = true

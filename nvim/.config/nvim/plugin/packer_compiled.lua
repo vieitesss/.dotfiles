@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/vieites/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["telescope-fzy-native.nvim"] = {
-    loaded = true,
-    path = "/home/vieites/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/vieites/.local/share/nvim/site/pack/packer/start/telescope.nvim",

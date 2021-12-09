@@ -36,7 +36,7 @@ keymap('n', '<Leader>bd', ':bd<CR>', {})
 keymap('n', '<Leader>bb', ':buffer', {})
 
 -- edit init.lua
-keymap('n', '<Leader>ve', ':e ~/.config/nvim/init.lua<CR>', s)
+keymap('n', '<Leader>ve', ':e ~/.config/nvim<CR>', s)
 
 -- reload file
 keymap('n', '<Leader>rf', ':so %<CR>', s)
@@ -66,7 +66,10 @@ keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', ns)
 keymap('n', '<Leader>pv', ':NvimTreeToggle<CR>', ns)
 
 -- telescope
-keymap('n', '<Leader>ff', ':Telescope', n)
+keymap('n', '<Leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], n)
+keymap('n', '<Leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], n)
+keymap('n', '<Leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], n)
+keymap('n', '<Leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], n)
 keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<CR>]], ns)
 
 -- java
