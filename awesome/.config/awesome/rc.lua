@@ -611,7 +611,10 @@ awful.rules.rules = {
           "veromix",
           "xtightvncviewer",
           "Gnome-control-center",
-          "Org.gnome.Nautilus"},
+          "Org.gnome.Nautilus",
+          "TopLevelShell",
+          "XPaint_es",
+          "GNU Octave"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
