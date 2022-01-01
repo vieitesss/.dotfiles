@@ -10,7 +10,7 @@ vim.g.mapleader = ' '
 -- save and quit
 keymap('n', '<Leader>w', ':w<CR>', {})
 keymap('n', '<Leader>q', ':q<CR>', {})
-keymap('n', '<Leader>wq', ':wq<CR>', {})
+keymap('n', '<Leader>Q', ':wq<CR>', {})
 
 -- no highlight
 keymap('n', '<Leader>no', ':noh<CR>', ns)

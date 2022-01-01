@@ -26,5 +26,5 @@ return require('packer').startup(function()
         }
     }
     use 'tami5/lspsaga.nvim'
-    use 'kdheepak/lazygit.nvim'
+    use 'terrortylor/nvim-comment'
 end)
