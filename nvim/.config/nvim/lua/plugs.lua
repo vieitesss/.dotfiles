@@ -12,6 +12,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
     use 'rafamadriz/friendly-snippets'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use {
@@ -27,4 +28,5 @@ return require('packer').startup(function()
     }
     use 'tami5/lspsaga.nvim'
     use 'terrortylor/nvim-comment'
+    use 'lervag/vimtex'
 end)

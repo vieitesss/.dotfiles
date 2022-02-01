@@ -2,6 +2,9 @@ local global = vim.o
 local window = vim.wo
 local buffer = vim.bo
 
+-- General
+vim.cmd([[filetype plugin indent on]])
+
 -- Colorscheme
 global.background = "dark"
 vim.cmd([[colorscheme gruvbox]])

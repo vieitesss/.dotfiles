@@ -8,7 +8,7 @@ vim.g.mapleader = ' '
 ------------------
 
 -- save and quit
-keymap('n', '<Leader>w', ':w<CR>', {})
+keymap('n', '<Leader>ww', ':w!<CR>', {})
 keymap('n', '<Leader>q', ':q<CR>', {})
 keymap('n', '<Leader>Q', ':wq<CR>', {})
 

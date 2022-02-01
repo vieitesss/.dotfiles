@@ -163,6 +163,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vieites/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/vieites/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/vieites/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
