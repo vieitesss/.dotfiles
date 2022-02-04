@@ -17,7 +17,7 @@ declare -A packages=(
 ["rofi"]="rofi"
 ["tty-clock"]="tty-clock"
 ["polybar"]="polybar"
-["rgrep"]="ripgrep"
+["ripgrep"]="rgrep"
 )
 
 for i in ${!packages[@]}
