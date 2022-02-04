@@ -27,6 +27,7 @@ alias c='clear'
 alias k='clear'
 alias cls='clear'
 
+export EDITOR="vim"
 alias edit="$EDITOR"
 alias pager="$PAGER"
 
