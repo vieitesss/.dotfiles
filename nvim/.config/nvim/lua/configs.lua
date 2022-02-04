@@ -31,6 +31,9 @@ global.scrolloff = 8
 window.cursorline = true
 global.ruler = true
 
+-- Words substitution
+global.inccommand = "nosplit"
+
 -- Mouse
 global.mouse = "a"
 
