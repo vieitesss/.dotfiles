@@ -1,6 +1,10 @@
 #!/bin/bash
 
-~/.screen_layout.sh
+if [[ $(hostname) -eq "macbookpro" ]]; then
+    ~/.mac.sh
+else
+    ~/.screen_layout.sh
+fi
 ~/.screensaver.sh
 compton -b
 flameshot
