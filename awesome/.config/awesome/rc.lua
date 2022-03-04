@@ -401,6 +401,19 @@ globalkeys = mytable.join(
         os.execute("xrandr --output DP-0 --brightness 0.7") 
     end,
               {description = "-10%", group = "hotkeys"}),
+    -- Volume
+    awful.key({  }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("amixer -D pulse sset Master 5%+") end,
+              {description = "+5% volume", group = "hotkeys"}),
+    awful.key({  }, "XF86AudioLowerVolume", function () os.execute("amixer -D pulse sset Master 5%-") end,
+              {description = "-5% volume", group = "hotkeys"}),
+    awful.key({  }, "XF86AudioMute", function () os.execute("amixer -D pulse sset Master 0%") end,
+              {description = "0% volume", group = "hotkeys"}),
+
+    --KBD Brightness
+    awful.key({  }, "XF86KbdBrightnessUp", function () awful.spawn.with_shell(string.format("sudo echo $(($(sudo cat %s) +10)) > %s", os.getenv("HOME") .. "/kbdbrightness", os.getenv("HOME") .. "/kbdbrightness")) end,
+              {description = "+5% kbd up", group = "hotkeys"}),
+    awful.key({  }, "XF86KbdBrightnessDown", function () os.execute(string.format("sudo echo $(($(sudo cat %s) -10)) > %s", os.getenv("HOME") .. "/kbdbrightness", os.getenv("HOME") .. "/kbdbrightness")) end,
+              {description = "-5% kbd down", group = "hotkeys"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
