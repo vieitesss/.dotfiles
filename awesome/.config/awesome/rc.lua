@@ -384,9 +384,9 @@ globalkeys = mytable.join(
     -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 3") end,
     --           {description = "-10%", group = "hotkeys"}),
     -- mac
-    awful.key({  }, "XF86MonBrightnessUp", function () awful.spawn.with_shell("~/.brightness.sh +2") end,
+    awful.key({  }, "XF86MonBrightnessUp", function () awful.spawn.with_shell(string.format("sudo echo $(($(sudo cat %s) +3)) > %s", os.getenv("HOME") .. "/brightness", os.getenv("HOME") .. "/brightness")) end,
               {description = "+10%", group = "hotkeys"}),
-    awful.key({  }, "XF86MonBrightnessDown", function () awful.spawn.with_shell("~/.brightness.sh -2") end,
+    awful.key({  }, "XF86MonBrightnessDown", function () os.execute(string.format("sudo echo $(($(sudo cat %s) -3)) > %s", os.getenv("HOME") .. "/brightness", os.getenv("HOME") .. "/brightness")) end,
               {description = "-10%", group = "hotkeys"}),
 
     awful.key({ modkey }, "=", function () 

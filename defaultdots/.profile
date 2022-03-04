@@ -26,10 +26,14 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [[ $hostname =~ "192.168.1.116" ]]; then
+if [[ $(hostname) -eq "macbookpro" ]]; then
+    POLYBAR_MONITOR="eDP"
+elif [[ $(hostname) =~ "192.168.1.116" ]]; then
     POLYBAR_MONITOR="HDMI-0"
-else
+else 
     POLYBAR_MONITOR="eDP1"
 fi
+
+export POLYBAR_MONITOR
 
 . "$HOME/.cargo/env"

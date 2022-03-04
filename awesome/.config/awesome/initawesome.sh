@@ -10,3 +10,6 @@ compton -b
 flameshot
 amixer set Capture 100%
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
+ibus-daemon
+
+sudo chmod 666 "/sys/class/backlight/acpi_video0/brightness"

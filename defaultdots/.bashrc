@@ -137,6 +137,14 @@ export TODO="t"
 export SCM_CHECK=true
 
 export DOTFILES="/home/$USER/.dotfiles"
+export HOSTNAME=$(hostname)
+
+if [[ -d /sys/class/backlight/acpi_video0 ]]; then
+    BRIGHTNESS="/sys/class/backlight/acpi_video0/brightness"
+else
+    BRIGHTNESS="/sys/class/backlight/acpi_video0/brightness"
+fi
+export BRIGHTNESS
 
 if [[ -d /opt/jdk-11.0.12 ]]; then
     export JAVA_HOME="/opt/jdk-11.0.12"

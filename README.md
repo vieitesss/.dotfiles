@@ -14,3 +14,18 @@ for folder in this_repo
     stow $folder
 done
 ```
+
+Brightness:
+
+Si no va el brillo, crear un link al directorio /sys/class/backlight/.../brightness, con nombre "brightness"
+
+Cambio de idioma:
+
+ibus-setup
+ibus-daemon
+
+Hace falta reiniciar
+
+Fuentes:
+
+Clonar https://github.com/powerline/fonts.git --depth=1 e instalar las fuentes con fonts/install.sh
