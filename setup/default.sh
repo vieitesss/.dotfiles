@@ -12,12 +12,12 @@ declare -A packages=(
 ["compton"]="compton"
 ["npm"]="npm"
 ["tree"]="tree"
-["exa"]="exa"
 ["fd-find"]="fdfind"
 ["rofi"]="rofi"
 ["tty-clock"]="tty-clock"
 ["polybar"]="polybar"
 ["ripgrep"]="rgrep"
+["blueman-manager"]="blueman"
 )
 
 for i in ${!packages[@]}
