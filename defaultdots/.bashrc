@@ -146,8 +146,8 @@ else
 fi
 export BRIGHTNESS
 
-if [[ -d /opt/jdk-11.0.12 ]]; then
-    export JAVA_HOME="/opt/jdk-11.0.12"
+if [[ -d /opt/jdk-11.0.13 ]]; then
+    export JAVA_HOME="/opt/jdk-11.0.13"
     PATH+=:$JAVA_HOME/bin
 fi
 
