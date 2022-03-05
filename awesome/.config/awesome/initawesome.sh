@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $(hostname) -eq "macbookpro" ]]; then
+if [[ $(hostname) == "macbookpro" ]]; then
     ~/.mac.sh
 else
     ~/.screen_layout.sh
