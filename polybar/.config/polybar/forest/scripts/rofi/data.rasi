@@ -6,10 +6,11 @@
     background-color:       @bg;
     text-color:             @fg;
 	font:				 	"Iosevka Nerd Font 13";
+    horizontal-align:       0.5;
 }
 
 window {
-    width:      			370px;
+    width:561 ;
     padding:    			25px;
     border:					1px 1px 1px 1px;
     border-radius:          0px;

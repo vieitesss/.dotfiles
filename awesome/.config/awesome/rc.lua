@@ -419,6 +419,10 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "c", function () awful.spawn.with_shell(string.format("%s/.config/polybar/forest/scripts/data.sh", os.getenv("HOME"))) end,
               {description = "show data", group = "hotkeys"}),
 
+    --Flameshot
+    awful.key({ modkey, "Shift" }, "p", function () os.execute("flameshot gui") end,
+              {description = "Screenshot", group = "hotkeys"}),
+
     -- Copy primary to clipboard (terminals to gtk)
     -- awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
     --           {description = "copy terminal to gtk", group = "hotkeys"}),
