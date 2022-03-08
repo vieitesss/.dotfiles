@@ -739,7 +739,15 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- }}}
+autorun=true
+autorunApps={
+    "$HOME/.config/awesome/initawesome.sh",
+    "~/.config/polybar/launch.sh --forest"
+}
 
-awful.spawn.with_shell("~/.config/awesome/initawesome.sh")
--- Para que quede bien la polybar hay que llamarla desde aquí
-awful.spawn.with_shell("~/.config/polybar/launch.sh --forest")
+if autorun then
+    for app = 1, #autorunApps do
+        awful.spawn.with_shell(autorunApps[app])
+    end
+end
+
