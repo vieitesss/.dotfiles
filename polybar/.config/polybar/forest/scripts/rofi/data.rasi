@@ -1,0 +1,24 @@
+/* Data Dialog */
+
+@import "colors.rasi"
+
+* {
+    background-color:       @bg;
+    text-color:             @fg;
+	font:				 	"Iosevka Nerd Font 13";
+}
+
+window {
+    width:      			370px;
+    padding:    			25px;
+    border:					1px 1px 1px 1px;
+    border-radius:          0px;
+    border-color:           @se;
+    location:               center;
+    y-offset:               -2em;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@ac;
+}

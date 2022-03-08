@@ -415,9 +415,13 @@ globalkeys = mytable.join(
     awful.key({  }, "XF86KbdBrightnessDown", function () os.execute(string.format("sudo echo $(($(sudo cat %s) -10)) > %s", os.getenv("HOME") .. "/kbdbrightness", os.getenv("HOME") .. "/kbdbrightness")) end,
               {description = "-5% kbd down", group = "hotkeys"}),
 
+    -- Data bar
+    awful.key({ modkey }, "c", function () awful.spawn.with_shell(string.format("%s/.config/polybar/forest/scripts/data.sh", os.getenv("HOME"))) end,
+              {description = "show data", group = "hotkeys"}),
+
     -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-              {description = "copy terminal to gtk", group = "hotkeys"}),
+    -- awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
+    --           {description = "copy terminal to gtk", group = "hotkeys"}),
     -- Copy clipboard to primary (gtk to terminals)
     awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
               {description = "copy gtk to terminal", group = "hotkeys"}),
