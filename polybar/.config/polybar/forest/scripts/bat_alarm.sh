@@ -2,12 +2,13 @@
 
 dir=$HOME/.config/polybar/forest/scripts/rofi
 
-if [[ $(ps aux | grep bat_alarm.* | wc -l) < 3 ]]; then
+number=$(ps -ef | grep "bat_alarm.sh" | grep -v grep | wc -l | xargs) 
+if [[ $number < 3 ]]; then
     while [[ true ]]; do
-        battery=$(echo "scale=2; (($(cat /sys/class/power_supply/BAT0/charge_now) * 100)/ $(cat /sys/class/power_supply/BAT0/charge_full))" | bc)
-
+        IFS=' |%' read -r -a battery_data <<< $(acpi --battery)
+        echo "${battery_data[3]}"
         if [[ $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]]; then
-            if [[ battery < 11 ]]; then
+            if [[ ${battery_data[3]} < 11 ]]; then
                 sed -i -r "s#width.*#width:100px;#" $dir/data.rasi
                 rofi -theme $dir/data.rasi -e " 10%"
                 sleep 120
@@ -19,3 +20,4 @@ if [[ $(ps aux | grep bat_alarm.* | wc -l) < 3 ]]; then
         fi
     done
 fi
+

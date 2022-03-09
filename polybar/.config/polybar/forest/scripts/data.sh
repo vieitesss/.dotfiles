@@ -13,10 +13,11 @@ dir="$HOME/.config/polybar/forest/scripts/rofi"
 
 ### battery
 
-battery=$(echo "scale=2; (($(cat /sys/class/power_supply/BAT0/charge_now) * 100)/ $(cat /sys/class/power_supply/BAT0/charge_full))" | bc)
+IFS=',|:' read -r -a battery_data <<< $(acpi --battery)
+echo ${battery_data[1]}
 
 bat_status=$discharging
-if [[ $(cat /sys/class/power_supply/BAT0/status) == "Charging" ]]; then
+if [[ ${battery_data[1]} == "Charging" ]]; then
    bat_status=$charging
 fi
 
@@ -53,7 +54,7 @@ audio="$audio_status $audio_per"
 
 # attach data
 
-data="$clock $date       $audio   $wifi   $bat_status ${battery%.*} %"
+data="$clock $date       $audio   $wifi   $bat_status${battery_data[2]}"
 expr length "$data"
 LENGTH=$(($(expr length "$data") * 11))
 

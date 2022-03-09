@@ -30,7 +30,9 @@ local function factory(args)
 
     local bat         = { widget = args.widget or wibox.widget.textbox() }
     local timeout     = args.timeout or 30
-    local notify      = args.notify or "on"
+    --NOTIFY OFF
+    -- local notify      = args.notify or "on"
+    local notify      = "off"
     local full_notify = args.full_notify or notify
     local n_perc      = args.n_perc or { 5, 15 }
     local batteries   = args.batteries or (args.battery and {args.battery}) or {}
