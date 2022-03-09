@@ -422,6 +422,8 @@ globalkeys = mytable.join(
     --Flameshot
     awful.key({ modkey, "Shift" }, "p", function () os.execute("flameshot gui") end,
               {description = "Screenshot", group = "hotkeys"}),
+    awful.key({ modkey, "Shift" }, "f", function () os.execute("flameshot full -c") end,
+              {description = "Screenshot", group = "hotkeys"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     -- awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
@@ -742,7 +744,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun=true
 autorunApps={
     "$HOME/.config/awesome/initawesome.sh",
-    "~/.config/polybar/launch.sh --forest"
+    "~/.config/polybar/launch.sh --forest",
+    "~/.config/polybar/forest/scripts/bat_alarm.sh"
 }
 
 if autorun then
