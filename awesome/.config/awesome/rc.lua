@@ -378,6 +378,13 @@ globalkeys = mytable.join(
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
               {description = "show calendar", group = "widgets"}),
 
+    -- Alacritty font size
+    awful.key({ modkey, "Shift"}, ".", function () os.execute(string.format("file=$HOME/.config/alacritty/alacritty.yml && cambiar=$(sed '153!d' $file) && sed -i \"s/$cambiar/  size: $(($(echo \"$cambiar\" | awk '{print $2}') + 1))/\" $file")) end,
+              {description = "+1 alacritty font", group = "hotkeys"}),
+
+    awful.key({ modkey, "Shift"}, ",", function () os.execute(string.format("file=$HOME/.config/alacritty/alacritty.yml && cambiar=$(sed '153!d' $file) && sed -i \"s/$cambiar/  size: $(($(echo \"$cambiar\" | awk '{print $2}') - 1))/\" $file")) end,
+              {description = "-1 alacritty font", group = "hotkeys"}),
+
     -- Screen brightness
     -- awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
     --           {description = "+10%", group = "hotkeys"}),
