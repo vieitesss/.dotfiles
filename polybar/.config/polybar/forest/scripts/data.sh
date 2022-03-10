@@ -17,7 +17,7 @@ IFS=',|:' read -r -a battery_data <<< $(acpi --battery)
 echo ${battery_data[1]}
 
 bat_status=$discharging
-if [[ ${battery_data[1]} == "Charging" ]]; then
+if [[ $(echo ${battery_data[1]}) == "Charging" ]]; then
    bat_status=$charging
 fi
 

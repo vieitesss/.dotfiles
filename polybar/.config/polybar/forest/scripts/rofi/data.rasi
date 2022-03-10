@@ -10,7 +10,7 @@
 }
 
 window {
-    width:627 ;
+    width:100px;
     padding:    			25px;
     border:					1px 1px 1px 1px;
     border-radius:          0px;
