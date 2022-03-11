@@ -65,7 +65,7 @@ alias xt="extract"
 # editors
 alias vim="nvim"
 alias v="nvim"
-alias logisim="java -jar /opt/logisim-2.7.1_GAC_v2.0.jar &"
+alias logisim="java -jar /opt/logisim/logisim-2.7.1_GAC_v2.0.jar &"
 
 # sudo editors
 alias svim="sudo vim"

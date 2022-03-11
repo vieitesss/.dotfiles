@@ -29,4 +29,5 @@ return require('packer').startup(function()
     use 'tami5/lspsaga.nvim'
     use 'terrortylor/nvim-comment'
     use 'lervag/vimtex'
+    use 'mhinz/vim-startify'
 end)
