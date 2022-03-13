@@ -10,7 +10,7 @@ local on_attach = function()
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
         -- disable virtual text
-        virtual_text = false,
+        -- virtual_text = false,
 
         -- show signs
         signs = true,
@@ -44,11 +44,13 @@ installer.on_server_ready(function(server)
                 },
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
-                    globals = {'vim', 'use'},
+                    globals = {'vim', 'use', 'love'},
+                    disable = {"lowercase-global"},
                 },
                 workspace = {
                     -- Make the server aware of Neovim runtime files
                     library = vim.api.nvim_get_runtime_file("", true),
+                    checkThirdParty = false,
                 },
                 -- Do not send telemetry data containing a randomized but unique identifier
                 telemetry = {
