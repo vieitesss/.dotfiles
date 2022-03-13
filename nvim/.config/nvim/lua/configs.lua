@@ -22,7 +22,7 @@ vim.cmd([[set guicursor=i:block]])
 
 -- Numbers
 window.number = true
-window.relativenumber = true
+-- window.relativenumber = true
 
 -- Lines to edges
 global.scrolloff = 8
