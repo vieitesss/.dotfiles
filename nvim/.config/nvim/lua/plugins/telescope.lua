@@ -17,12 +17,18 @@ telescope.setup{
 --    },
     pickers = {
         find_files = {
-            hidden = true
+            hidden = true,
         },
         buffers = {
+            initial_mode = "normal",
+            show_all_buffers = true,
+            sort_lastused = true,
+            theme = "dropdown",
+            previewer = false,
             mappings = {
                 n = {
-                    ["dd"] = actions.delete_buffer + actions.move_to_top
+                    ["dd"] = actions.delete_buffer,
+                    ["V"] = actions.add_selection
                 }
             }
         }
