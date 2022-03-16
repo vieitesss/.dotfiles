@@ -1,4 +1,5 @@
 local telescope = require'telescope'
+local actions  = require 'telescope.actions'
 telescope.setup{
     defaults = {
         --file_sorter = require'telescope.sorters'.get_fzy_sorter,
@@ -17,6 +18,13 @@ telescope.setup{
     pickers = {
         find_files = {
             hidden = true
+        },
+        buffers = {
+            mappings = {
+                n = {
+                    ["dd"] = actions.delete_buffer + actions.move_to_top
+                }
+            }
         }
     }
 }

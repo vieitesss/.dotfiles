@@ -18,7 +18,7 @@ echo ${battery_data[1]}
 
 bat_status=$discharging
 if [[ $(echo ${battery_data[1]}) == "Charging" ]]; then
-   bat_status=$charging
+bat_status=$charging
 fi
 
 ### date
@@ -61,3 +61,4 @@ LENGTH=$(($(expr length "$data") * 11))
 sed -i -r "s#width.*#width:$LENGTH ;#" $dir/data.rasi
 
 rofi -theme "$dir/data.rasi" -e "$data"
+
