@@ -24,6 +24,9 @@ vim.cmd([[set guicursor=i:block]])
 window.number = true
 -- window.relativenumber = true
 
+-- Lines
+window.wrap = false
+
 -- Lines to edges
 global.scrolloff = 8
 

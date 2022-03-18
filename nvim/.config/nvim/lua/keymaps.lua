@@ -41,6 +41,40 @@ keymap('n', '<Leader>ve', ':e ~/.config/nvim<CR>', s)
 -- reload file
 keymap('n', '<Leader>rf', ':so %<CR>', s)
 
+-- make session
+keymap('n', '<Leader>mk', ':lua makeSession(".vim")<CR>', s)
+
+function makeSession(dir)
+    local ok, err = isdir(dir)
+
+    if ok then
+        vim.cmd([[:mksession! .vim/session.vim]])
+        print("Session saved.")
+    else
+        os.execute("mkdir " .. dir)
+        vim.cmd([[:mksession! .vim/session.vim]])
+        print("Session saved.")
+    end
+end
+
+--- Check if a file or directory exists in this path
+function exists(file)
+   local ok, err, code = os.rename(file, file)
+   if not ok then
+      if code == 13 then
+         -- Permission denied, but it exists
+         return true
+      end
+   end
+   return ok, err
+end
+
+--- Check if a directory exists in this path
+function isdir(path)
+   -- "/" works on both Unix and Windows
+   return exists(path.."/")
+end
+
 -- packer
 keymap('n', '<Leader>ps', ':PackerSync<CR>', n)
 
@@ -72,11 +106,13 @@ keymap('n', '<Leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]
 keymap('n', '<Leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], n)
 keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<CR>]], ns)
 
--- java
-keymap('n', '<Leader>jr', ':vsplit term://java %<CR>', ns)
+-- startify
+keymap('n', '<C-m>', ':Startify <CR>', ns)
 
--- python
-keymap('n', '<Leader>pr', ':vsplit term://python3 %<CR>', ns)
+-- floaterm
+keymap('n', '<Leader>ft', ':FloatermNew<CR>', ns)
+keymap('n', '<Leader>t', ':FloatermToggle<CR>', ns)
+keymap('t', 'jk', '<C-\\><C-n>', ns)
 
 ----- Insert -----
 ------------------

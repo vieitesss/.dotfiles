@@ -30,4 +30,5 @@ return require('packer').startup(function()
     use 'terrortylor/nvim-comment'
     use 'lervag/vimtex'
     use 'mhinz/vim-startify'
+    use 'voldikss/vim-floaterm'
 end)

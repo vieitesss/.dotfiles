@@ -29,3 +29,8 @@ Hace falta reiniciar
 Fuentes:
 
 Clonar https://github.com/powerline/fonts.git --depth=1 e instalar las fuentes con fonts/install.sh
+
+NVIM:
+
+versión de NodeJS (IMPORTANTE)
+pip3 install neovim-remote -> para vim-floaterm
