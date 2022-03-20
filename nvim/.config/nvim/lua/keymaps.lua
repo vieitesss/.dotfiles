@@ -106,9 +106,6 @@ keymap('n', '<Leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]
 keymap('n', '<Leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], n)
 keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<CR>]], ns)
 
--- startify
-keymap('n', '<C-m>', ':Startify <CR>', ns)
-
 -- floaterm
 keymap('n', '<Leader>ft', ':FloatermNew<CR>', ns)
 keymap('n', '<Leader>t', ':FloatermToggle<CR>', ns)
