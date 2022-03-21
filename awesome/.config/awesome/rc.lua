@@ -259,7 +259,10 @@ screen.connect_signal("arrange", function (s)
 end)
 
 -- Create a wibox for each screen and add it
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(function(s) 
+    beautiful.at_screen_connect(s)
+    awful.screen.padding(s, {top = 34}) -- polybar height
+end)
 
 -- }}}
 
@@ -751,7 +754,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun=true
 autorunApps={
     "$HOME/.config/awesome/initawesome.sh",
-    -- "~/.config/polybar/launch.sh --forest",
+    "~/.config/polybar/forest/launch.sh",
     "~/.config/polybar/forest/scripts/bat_alarm.sh"
 }
 
