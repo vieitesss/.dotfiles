@@ -111,6 +111,9 @@ keymap('n', '<Leader>ft', ':FloatermNew<CR>', ns)
 keymap('n', '<Leader>t', ':FloatermToggle<CR>', ns)
 keymap('t', 'jk', '<C-\\><C-n>', ns)
 
+-- startify
+keymap('n', '<C-m>', ':Startify<CR>', ns)
+
 ----- Insert -----
 ------------------
 -- quit
