@@ -43,6 +43,7 @@ export PATH
 
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"
+source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Load Bash It
 #source "$BASH_IT"/bash_it.sh
@@ -58,3 +59,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(starship init zsh)"
+
+bindkey '^j' autosuggest-accept
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.dit/*'"
+export FZF_CTRL_T_COMMAND="find . -type f -not -path '*/\.dit/*'"

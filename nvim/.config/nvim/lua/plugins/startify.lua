@@ -11,5 +11,5 @@ vim.g.startify_bookmarks = {
         { d = '~/.dotfiles/defaultdots' },
         { a = '~/.dotfiles/awesome/.config/awesome' },
         { n = '~/.dotfiles/nvim/.config/nvim' },
-        { p = '~/.dotfiles/polybar/.config/polybar/forest/scripts' }
+        { p = '~/.dotfiles/polybar/.config/polybar/forest' }
     }
