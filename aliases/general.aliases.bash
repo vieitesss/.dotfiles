@@ -10,9 +10,9 @@ alias find="sudo find . -iname" #search from current directory
 alias dot="cd $DOTFILES"
 
 # bat
-alias cat="bat"
-alias catn="cat"
-alias catnl="bat --paging=never"
+alias cat="/bin/bat"
+alias catn="/bin/cat"
+alias catnl="/bin/bat --paging=never"
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"
