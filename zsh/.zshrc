@@ -44,6 +44,7 @@ export PATH
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"
 source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.zsh/sudo.plugin.zsh"
 
 # Load Bash It
 #source "$BASH_IT"/bash_it.sh
@@ -60,6 +61,8 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(starship init zsh)"
 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 bindkey '^j' autosuggest-accept
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
