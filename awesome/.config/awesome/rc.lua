@@ -303,7 +303,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.tile                          ,
         class ={
-            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "RStudio", "VirtualBox Manager", "VirtualBox Machine"}
+            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "VirtualBox Manager", "VirtualBox Machine"}
     } ,
     {
         name        = "5", --Doc
@@ -357,6 +357,80 @@ end)
 
 -- }}}
 
+function getOption(cmd, raw)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  if raw then return s end
+  s = string.gsub(s, '^%s+', '')
+  s = string.gsub(s, '%s+$', '')
+  s = string.gsub(s, '[\n\r]+', ' ')
+  return s
+end
+
+local function delete_tag()
+    local t = awful.screen.focused().selected_tag
+    if not t then return end
+    t:delete()
+end
+
+local function add_tag()
+    awful.tag.add("4", {
+        screen = awful.screen.focused(),
+        layout = awful.layout.suit.tile }):view_only()
+
+    rename_tag()
+end
+
+function rename_tag()
+    newName = getOption('echo \"Term\nBrowser\nFiles\nDevelop\nDoc\" | rofi -theme \"/home/vieites/.config/polybar/forest/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Tag name:\"', nil)
+
+    if newName == "Term" then
+        newName = "1"
+    elseif newName == "Browser" then
+        newName = "2"
+    elseif newName == "Files" then
+        newName = "3"
+    elseif newName == "Develop" then
+        newName = "4"
+    elseif newName == "Doc" then
+        newName = "5"
+    else
+        return
+    end
+
+    local t = awful.screen.focused().selected_tag
+    if t then
+        t.name = newName
+    end
+end
+
+local function move_to_new_tag()
+    local c = client.focus
+    if not c then return end
+
+    local t = awful.tag.add(c.class,{screen= c.screen })
+    c:tags({t})
+    t:view_only()
+
+    rename_tag()
+end
+
+
+function tags()
+    ans = getOption('echo \"new\nrename\ndelete\nmove\" | rofi -theme \"/home/vieites/.config/polybar/forest/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Acción:\"', nil)
+
+    if ans == "new" then
+        add_tag()
+    elseif ans == "rename" then
+        rename_tag()
+    elseif ans == "delete" then
+        delete_tag()
+    elseif ans == "move" then
+        move_to_new_tag()
+    end
+end
+
 -- {{{ Mouse bindings
 
 root.buttons(mytable.join(
@@ -370,6 +444,11 @@ root.buttons(mytable.join(
 -- {{{ Key bindings
 
 globalkeys = mytable.join(
+
+    -- Then **IN THE globalkeys TABLE** add a new shortcut
+    awful.key({ modkey }, "e", tags,
+        {description = "Echo a string", group = "custom"}),
+
     -- Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "hotkeys"}),
