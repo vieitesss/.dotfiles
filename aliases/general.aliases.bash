@@ -19,6 +19,9 @@ alias vbrc="vim ~/.bashrc"
 alias vrc="vim ~/.config/nvim/init.lua"
 alias nvd="cd ~/.config/nvim/"
 
+# ovftool
+alias ovftool="/usr/bin/vmware-ovftool/ovftool"
+
 # colored grep
 # Need to check an existing file for a pattern that will be found to ensure
 # that the check works when on an OS that supports the color option

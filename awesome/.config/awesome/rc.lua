@@ -303,7 +303,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.tile                          ,
         class ={
-            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "RStudio"}
+            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "RStudio", "VirtualBox Manager", "VirtualBox Machine"}
     } ,
     {
         name        = "5", --Doc
@@ -330,7 +330,8 @@ tyrannical.properties.floating = {
     "MPlayer"      , "pinentry"        , "ksnapshot"  , "pinentry"     , "gtksu"          ,
     "xine"         , "feh"             , "kmix"       , "kcalc"        , "xcalc"          ,
     "yakuake"      , "Select Color$"   , "kruler"     , "kcolorchooser", "Paste Special"  ,
-    "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer"
+    "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer" ,
+    "VirtualBox Manager"
 }
 
 -- Make the matching clients (by classes) on top of the default layout
@@ -743,7 +744,9 @@ awful.rules.rules = {
           "Org.gnome.Nautilus",
           "TopLevelShell",
           "XPaint_es",
-          "GNU Octave"},
+          "GNU Octave",
+          "VirtualBox Manager"
+        },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -755,7 +758,10 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = { 
+          floating = true,
+          placement = awful.placement.centered
+      }},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
