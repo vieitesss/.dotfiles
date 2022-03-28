@@ -298,12 +298,15 @@ tyrannical.tags = {
     } ,
     {
         name        = "4", --Develop
-        init        = false,
+        init        = true,
         exclusive   = true,
         screen      = 1,
         layout      = awful.layout.suit.tile                          ,
         class ={
-            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "VirtualBox Manager", "VirtualBox Machine"}
+            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4", "VirtualBox",
+            "VirtualBox Manager", "VirtualBox Machine", "RStudio", "Rcommander", "TkFDialog",
+            "Toplevel", "com-cburch-logisim-Main"
+        }
     } ,
     {
         name        = "5", --Doc
@@ -331,7 +334,7 @@ tyrannical.properties.floating = {
     "xine"         , "feh"             , "kmix"       , "kcalc"        , "xcalc"          ,
     "yakuake"      , "Select Color$"   , "kruler"     , "kcolorchooser", "Paste Special"  ,
     "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer" ,
-    "VirtualBox Manager"
+    "VirtualBox Manager",
 }
 
 -- Make the matching clients (by classes) on top of the default layout
@@ -418,16 +421,18 @@ end
 
 
 function tags()
-    ans = getOption('echo \"new\nrename\ndelete\nmove\" | rofi -theme \"/home/vieites/.config/polybar/forest/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Acción:\"', nil)
+    ans = getOption('echo \" \n[n]ew\n[r]ename\n[d]elete\n[m]ove\" | rofi -theme \"/home/vieites/.config/polybar/forest/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Acción:\"', nil)
 
-    if ans == "new" then
+    if ans == "[n]ew" then
         add_tag()
-    elseif ans == "rename" then
+    elseif ans == "[r]ename" then
         rename_tag()
-    elseif ans == "delete" then
+    elseif ans == "[d]elete" then
         delete_tag()
-    elseif ans == "move" then
+    elseif ans == "[m]ove" then
         move_to_new_tag()
+    else
+        return
     end
 end
 
@@ -622,7 +627,7 @@ globalkeys = mytable.join(
     --awful.key({ modkey }, "p", function() menubar.show() end,
               --{description = "show the menubar", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.spawn.with_shell("~/.config/polybar/forest/scripts/launcher.sh") end,
-              {description = "show the menubar", group = "launcher"}),
+              {description = "show the menubar", group = "launcher"})
     --[[dmenu
     awful.key({ modkey }, "x", function ()
             os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
@@ -640,8 +645,8 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"})
+    -- awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "run prompt", group = "launcher"})
 
 --    awful.key({ modkey }, "x",
 --              function ()
@@ -824,7 +829,11 @@ awful.rules.rules = {
           "TopLevelShell",
           "XPaint_es",
           "GNU Octave",
-          "VirtualBox Manager"
+          "VirtualBox Manager",
+          "VirtualBox",
+          "Rcommander",
+          "Toplevel",
+          "TkFDialog"
         },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
