@@ -938,7 +938,8 @@ autorun=true
 autorunApps={
     "$HOME/.config/awesome/initawesome.sh",
     "~/.config/polybar/forest/launch.sh",
-    "~/.config/polybar/forest/scripts/bat_alarm.sh"
+    "~/.config/polybar/forest/scripts/bat_alarm.sh",
+    "dunst"
 }
 
 if autorun then
