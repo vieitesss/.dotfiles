@@ -32,7 +32,7 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$suspend\n$logout\n$reboot\n$shutdown"
+options="$suspend\n$logout\n$reboot\n$shutdown\n$lock"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
 case $chosen in
@@ -80,6 +80,16 @@ case $chosen in
 			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
 				i3-msg exit
 			fi
+		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+			exit 0
+        else
+			msg
+        fi
+        ;;
+    $lock)
+		ans=$(confirm_exit &)
+		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            i3lock -f -i $HOME/.dotfiles/wallpapers/lock.png
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0
         else

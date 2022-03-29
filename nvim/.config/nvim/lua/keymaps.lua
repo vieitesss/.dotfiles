@@ -89,7 +89,7 @@ keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_
 keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', ns)
 keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', ns)
 keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', ns)
-keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', ns)
+keymap('n', 'gr', ':Telescope lsp_references<CR>', ns)
 keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', ns)
 keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', ns)
 keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', ns)
@@ -110,9 +110,6 @@ keymap('n', '<Leader>dot', [[:lua require'plugins.telescope'.search_dotfiles()<C
 keymap('n', '<Leader>ft', ':FloatermNew<CR>', ns)
 keymap('n', '<Leader>t', ':FloatermToggle<CR>', ns)
 keymap('t', 'jk', '<C-\\><C-n>', ns)
-
--- startify
-keymap('n', '<C-m>', ':Startify<CR>', ns)
 
 ----- Insert -----
 ------------------

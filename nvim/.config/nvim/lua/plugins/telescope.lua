@@ -31,6 +31,9 @@ telescope.setup{
                     ["V"] = actions.add_selection
                 }
             }
+        },
+        lsp_references = {
+            initial_mode = "normal"
         }
     }
 }
