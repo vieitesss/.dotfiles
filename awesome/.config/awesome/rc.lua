@@ -355,7 +355,6 @@ tyrannical.settings.group_children = true --Force popups/dialogs to have the sam
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) 
     beautiful.at_screen_connect(s)
-    awful.screen.padding(s, {top = 34}) -- polybar height
 end)
 
 -- }}}
