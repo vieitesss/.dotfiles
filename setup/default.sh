@@ -18,6 +18,7 @@ declare -A packages=(
 ["polybar"]="polybar"
 ["ripgrep"]="rgrep"
 ["blueman-manager"]="blueman"
+["i3lock"]="i3lock"
 )
 
 for i in ${!packages[@]}
