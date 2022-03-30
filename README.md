@@ -17,7 +17,8 @@ done
 
 Brightness:
 
-Si no va el brillo, crear un link al directorio /sys/class/backlight/.../brightness, con nombre "brightness"
+Si no va el brillo, crear un link al directorio /sys/class/backlight/.../brightness, con nombre "brightness" en el HOME
+Lo mismo para el archivo del brillo del teclado /sys/class/leds/.../brightness, con nombre "kbdbrightness"
 
 Cambio de idioma:
 
