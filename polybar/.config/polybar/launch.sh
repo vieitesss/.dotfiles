@@ -2,7 +2,7 @@
 
 # Add this script to your wm startup file.
 
-DIR="$HOME/.config/polybar/forest"
+DIR="$HOME/.config/polybar"
 
 # Terminate already running bar instances
 killall -q polybar
@@ -18,5 +18,4 @@ if type "xrandr"; then
 
     else
         polybar --reload main -c "$DIR"/config.ini &
-            
 fi
