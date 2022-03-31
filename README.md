@@ -35,3 +35,9 @@ NVIM:
 
 versión de NodeJS (IMPORTANTE)
 pip3 install neovim-remote -> para vim-floaterm
+
+Dunst:
+
+Repositorio de dunst-project en github.
+Instalar todas las dependencias posibles.
+Al hacer el make, desactivar la variable WAYLAND.
