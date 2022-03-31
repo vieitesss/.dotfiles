@@ -7,7 +7,7 @@ vim.cmd([[filetype plugin indent on]])
 
 -- Colorscheme
 global.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme dracula]])
 
 -- Indent
 global.autoindent = true

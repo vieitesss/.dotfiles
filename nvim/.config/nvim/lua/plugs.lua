@@ -1,6 +1,10 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
+    ---- colorschemes
 	use 'morhetz/gruvbox'
+    use 'Mofiqul/dracula.nvim'
+    use 'altercation/vim-colors-solarized'
+    ----
 	use 'windwp/nvim-autopairs'
     use{
         'nvim-lualine/lualine.nvim',
