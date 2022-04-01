@@ -1,0 +1,8 @@
+#!/bin/bash
+
+num_desktops=$(bspc query -D | wc -l)
+desktops=($(bspc query -D))
+for (( i=1; i<=${num_desktops}; ++i ))
+do
+  bspc desktop "^${i}" --rename ${i}
+done

@@ -1,0 +1,187 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	alacritty
+
+# program launcher
+super + p
+    /home/vieites/.config/polybar/scripts/launcher.sh
+
+# powermenu
+super + q
+    /home/vieites/.config/polybar/scripts/powermenu.sh
+
+# colorscheme
+super + shift + p
+    /home/vieites/.config/polybar/scripts/style-switch.sh
+
+# launch firefox
+super + b
+    firefox &
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + ctrl + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + shift + c
+	bspc node -c;\
+    sleep 0.1;\
+    /home/vieites/.config/bspwm/scripts/remove_desktop
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# hide window
+super + n
+   bspc node focused -g hidden=on
+
+# show hidden window
+super + shift + n
+    hidden=$(bspc query -N -n .hidden -d focused | tail -1);\
+    bspc node "$hidden" -g hidden=off
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+# super + {p,b,comma,period}
+# 	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }w
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# new desktop
+super + {_,shift + } 0
+    {/home/vieites/.config/bspwm/scripts/add_desktop,/home/vieites/.config/bspwm/scripts/remove_desktop}
+
+# focus dektop
+super + {1-9}
+    bspc desktop -f '^{1-9}'
+
+# send to the given desktop
+super + shift + {1-9}
+    /home/vieites/.config/bspwm/scripts/bspwm_movewindow {1-9}
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+# super + alt + {h,j,k,l}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+# super + alt + shift + {h,j,k,l}
+# 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Custom move/resize
+super + alt + {h,j,k,l}
+    /home/vieites/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# Add keybindings for volume and lightness
+#
+XF86AudioRaiseVolume 
+    amixer -D pulse sset Master 5%+
+    
+XF86AudioLowerVolume 
+    amixer -D pulse sset Master 5%-
+    
+XF86AudioMute 
+    amixer -D pulse sset Master 0%
+    
+
+# /home/vieites/.config/bspwm/scripts/bspwm_brightness
+XF86MonBrightnessUp 
+    brightnessctl --device=acpi_video0 set 5+
+XF86MonBrightnessDown 
+    brightnessctl --device=acpi_video0 set 5-
+
+XF86KbdBrightnessUp 
+    brightnessctl --device=apple::kbd_backlight set 5+
+XF86KbdBrightnessDown 
+    brightnessctl --device=apple::kbd_backlight set 5-
+
+#
+# Keyboard layout
+#
+
+alt + Tab
+    /home/vieites/.config/bspwm/scripts/bspwm_kblayout

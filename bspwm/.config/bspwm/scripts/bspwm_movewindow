@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dir="$HOME/.config/bspwm/scripts/"
+n_desktops=$(bspc query -D | wc -l)
+
+if [ "$1" -gt "$n_desktops" ]; then
+    ${dir}add_desktop
+fi
+
+bspc node --to-desktop "^$1"
+
+${dir}remove_desktop

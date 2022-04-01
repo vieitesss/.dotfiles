@@ -1,0 +1,25 @@
+#!/bin/bash
+
+error()
+{
+    echo -e "./brightness <element> <option>\n\n[elements]\n\tscreen\n\tkbd\n\n[options]\n\tup: increase brightness\n\tdown: decrease brightness"
+    exit 0
+}
+
+if [ "$1" = "screen" ]; then
+    dir="$HOME/brightness"
+elif [ "$1" = "kbd" ]; then
+    dir="$HOME/kbdbrightness"
+else 
+    error
+fi
+
+if [ "$2" = "up" ]; then
+    option="+3"
+elif [ "$2" = "down" ]; then
+    option="-3"
+else 
+    error
+fi
+
+sudo echo $(($(sudo cat $dir) $option)) > $dir

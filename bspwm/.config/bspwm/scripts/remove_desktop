@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Only try to remove the desktop if there are no windows left on it and it's not the
+# last desktop of the current monitor.
+if [[ $(bspc query -N -d focused | wc -l) == 0 && $(bspc query -D -m focused | wc -l) > 1 ]]; then
+  current_desktop=$(bspc query -D -d focused)
+  # num_desktops=$(bspc query -D | wc -l)
+  # if [[ ${current_desktop} == ${num_desktops} ]]; then
+    bspc desktop ${current_desktop} --remove
+  # else
+    # current_monitor=$(bspc query -M -m focused)
+    # last_monitor=$(bspc query -M | tail -n 1)
+    # if [[ ${current_monitor} != ${last_monitor} ]]; then
+    #   # We'll move the current desktop onto the last monitor if it's not already there
+    #   bspc desktop ${current_desktop} --to-monitor ${last_monitor}
+    # else
+    #   # We'll swap the desktops so that the current desktop is actually the last desktop...bubblesort style.
+    #   for (( i=$((${current_desktop} + 1)); i<=${num_desktops}; ++i )); do
+    #     bspc desktop ${current_desktop} --swap ${i}
+    #   done
+    # fi
+    # bspc desktop ${current_desktop} --remove
+    $HOME/.config/bspwm/scripts/renumber_desktops
+  # fi
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+layout=$(setxkbmap -query | grep layout | awk '{print $2}')
+
+if [ "$layout" = "us" ]; then
+    ibus engine xkb:es::spa
+elif [ "$layout" = "es" ]; then
+    ibus engine xkb:us:intl:eng
+fi
