@@ -2,7 +2,7 @@
 
 # Only try to remove the desktop if there are no windows left on it and it's not the
 # last desktop of the current monitor.
-if [[ $(bspc query -N -d focused | wc -l) == 0 && $(bspc query -D -m focused | wc -l) > 1 ]]; then
+if [[ $(bspc query -N -d focused | wc -l) == 0 && $(bspc query -D -m focused | wc -l) > 2 ]]; then
   current_desktop=$(bspc query -D -d focused)
   # num_desktops=$(bspc query -D | wc -l)
   # if [[ ${current_desktop} == ${num_desktops} ]]; then

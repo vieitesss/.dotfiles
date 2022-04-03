@@ -159,29 +159,37 @@ super + {Left,Down,Up,Right}
 # Add keybindings for volume and lightness
 #
 XF86AudioRaiseVolume 
-    amixer -D pulse sset Master 5%+
+    amixer -D pulse sset Master 5%+;\
+    /home/vieites/.config/dunst/scripts/volume.sh
     
 XF86AudioLowerVolume 
-    amixer -D pulse sset Master 5%-
+    amixer -D pulse sset Master 5%-;\
+    /home/vieites/.config/dunst/scripts/volume.sh
     
 XF86AudioMute 
-    amixer -D pulse sset Master 0%
+    amixer -D pulse sset Master 0%;\
+    /home/vieites/.config/dunst/scripts/volume.sh
     
 
 # /home/vieites/.config/bspwm/scripts/bspwm_brightness
 XF86MonBrightnessUp 
-    brightnessctl --device=acpi_video0 set 5+
+    brightnessctl --device=acpi_video0 set 5+;\
+    /home/vieites/.config/dunst/scripts/brightness.sh screen
 XF86MonBrightnessDown 
-    brightnessctl --device=acpi_video0 set 5-
+    brightnessctl --device=acpi_video0 set 5-;\
+    /home/vieites/.config/dunst/scripts/brightness.sh screen
 
 XF86KbdBrightnessUp 
-    brightnessctl --device=apple::kbd_backlight set 5+
+    brightnessctl --device=apple::kbd_backlight set 5+;\
+    /home/vieites/.config/dunst/scripts/brightness.sh kb
 XF86KbdBrightnessDown 
-    brightnessctl --device=apple::kbd_backlight set 5-
+    brightnessctl --device=apple::kbd_backlight set 5-;\
+    /home/vieites/.config/dunst/scripts/brightness.sh kb
 
 #
 # Keyboard layout
 #
 
 alt + Tab
-    /home/vieites/.config/bspwm/scripts/bspwm_kblayout
+    /home/vieites/.config/bspwm/scripts/bspwm_kblayout;\
+    /home/vieites/.config/dunst/scripts/kblayout.sh

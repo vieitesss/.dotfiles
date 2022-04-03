@@ -4,8 +4,8 @@
 
     follow = mouse
 
-    width = (0, 350)
-    offset = 20x50
+    width = 300
+    offset = 15x50
     scale = 0
     transparency = 20
 
@@ -44,7 +44,7 @@
     ignore_newline = no
     stack_duplicates = true
     hide_duplicate_count = false
-    show_indicators = yes
+    show_indicators = false
 
     icon_position = left
     min_icon_size = 0
@@ -74,16 +74,35 @@
     background = "#21222D"
     foreground = "#A0A8CD"
     frame_color = "#A0A8CD"
+    default_icon = campana
     timeout = 5
 
 [urgency_normal]
     background = "#21222D"
     foreground = "#EEEEEE"
     frame_color = "#EEEEEE"
+    default_icon = campana
     timeout = 5
 
 [urgency_critical]
     background = "#21222D"
     foreground = "#EE6D85"
     frame_color = "#EE6D85"
+    default_icon = warning
     timeout = 30
+
+[kblayout]
+    appname = kblayout
+    default_icon = pencil
+
+[volume]
+    appname = volume
+    timeout = 2
+
+[screen]
+    appname = screen
+    timeout = 2
+
+[kb]
+    appname = kb
+    timeout = 2

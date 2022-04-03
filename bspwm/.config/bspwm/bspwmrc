@@ -2,7 +2,14 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2
+if type "xrandr"; then
+    declare -i d=1
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        # 2 desktops per monitor
+        bspc monitor "$m" -d "$d" "$(($d + 1))"
+        let $d+=2
+    done
+fi
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -15,6 +22,8 @@ bspc config gapless_monocle      true
 # rules
 bspc rule -a "VirtualBox Manager" state=floating center=true
 bspc rule -a "Org.gnome.Nautilus" state=floating center=true
+bspc rule -a "URxvt" state=floating center=true
+bspc rule -a "Yad" state=floating center=true
 
 # wallpaper
 sleep 0.1
@@ -38,7 +47,7 @@ compton -b &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/launch.sh bspwm &
 
 dunst -conf $HOME/.config/dunst/dunstrc &
 killall battery.sh > /dev/null
