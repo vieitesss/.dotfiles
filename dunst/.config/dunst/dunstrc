@@ -106,3 +106,7 @@
 [kb]
     appname = kb
     timeout = 2
+
+[cr]
+    appname = cr
+    timeout = 10

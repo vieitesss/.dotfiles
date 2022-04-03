@@ -24,6 +24,7 @@ bspc rule -a "VirtualBox Manager" state=floating center=true
 bspc rule -a "Org.gnome.Nautilus" state=floating center=true
 bspc rule -a "URxvt" state=floating center=true
 bspc rule -a "Yad" state=floating center=true
+bspc rule -a "Eog" state=floating center=true
 
 # wallpaper
 sleep 0.1
