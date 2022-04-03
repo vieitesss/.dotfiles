@@ -248,7 +248,7 @@ local function pl(widget, bgcolor, padding)
     return wibox.container.background(wibox.container.margin(widget, dpi(16), dpi(16)), bgcolor, theme.powerline_rl)
 end
 
-tagnames = 1
+tag= 1
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
@@ -265,7 +265,8 @@ function theme.at_screen_connect(s)
     mylauncher2 = awful.widget.launcher({image = theme.awesome_icon, menu = awful.util.mymainmenu})
 
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    awful.tag({ tag, tag + 1 }, s, awful.layout.layouts)
+    tag = tag + 2
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

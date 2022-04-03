@@ -111,7 +111,7 @@ local discord      = "/opt/Discord/Discord"
 
 --awful.util.volumecfg = volumecfg
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2" }
+awful.util.tagnames = { 1, 2 }
 awful.layout.layouts = {
 --awful.layout.suit.floating,
 awful.layout.suit.tile,
