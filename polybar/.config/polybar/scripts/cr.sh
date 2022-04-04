@@ -1,29 +1,42 @@
 #!/bin/bash
 
-chests=( "giant" "epic" "magical" "legendary" "royalwild" "megalightning" )
+DIR="/tmp/cr"
+FILE="${DIR}/cr.tmp"
+ID="${DIR}/id"
+DEFAULT_ID="2PRLCVGC"
 
-curl -s https://royaleapi.com/player/2PRLCVGC > cr.tmp
+mkdir -p $DIR > /dev/null
 
-# all_data=()
-# grep -E "chest giant|epic|magical|legendary|royalwild|megalightning" -A 6 | grep -vE "img|tr|td|h5"
+if [[ -n $1 || ! -s $ID ]]; then
+    zenity --entry --text "Enter your CR ID:" > $ID
+fi
 
-for chest in "${chests[@]}"
-do
-    data=$(grep "chest $chest" -A 6 cr.tmp | awk -F"[<>]" '{print $1}' | sort)
-    # all_data+=("$data")
-    chests_left=$(echo $data | awk '{print $1 " " $2}')
-    time_to_unlock=$(echo $data | awk '{for(i=3;i<=NF;i++) total = total " " $i; print total}')
-    
-    dunstify -a "cr" -i $chest "Chests left: $chests_left" "Time to unlock: $time_to_unlock"
+dunstify "Searching data..."
+
+curl -s https://royaleapi.com/player/$(cat $ID) > $FILE
+
+name=$(cat $FILE | grep "class=\"p_header_container" -A 3 | tail -n 1)
+
+if [ ! -s $FILE ]; then
+    dunstctl close-all
+    dunstify -u critical -i warning -t 5000 "There was a problem"
+    exit 0
+fi
+
+data=$(cat $FILE | grep -E "chest giant|epic|magical|legendary|royalwild|megalightning" -A 6 | grep -vE "img|tr|td|h5")
+sorted_chests=$(echo $data | awk '{for(I=1;I<NF;I++) if ($I == "class=\"chest") printf "%s ",$(I+1)}' | sed 's/\">//g')
+chest_number=$(echo $data | awk '{for(I=1;I<NF;I++) if ($I ~ /basic|violet../) printf "%s%s ",$(I+1),$(I+2)}')
+chest_data=$(echo $data | awk '{for(I=1;I<NF;I++){ if ($I ~ /[0-9]+[wdh]/){ printf "%s",$I; if ($I ~ /[0-9]+h/) printf "\n" }}}')
+
+chests_arr=( $sorted_chests )
+number_arr=( $chest_number )
+time_arr=( $chest_data )
+
+dunstctl close-all
+
+dunstify -a "cr" -i cr "$name"
+for ((i = 0; i < ${#chests_arr[@]}; i++)); do
+    dunstify -a "cr" -i ${chests_arr[i]} "Chests left: ${number_arr[i]}" "Time to unlock: ${time_arr[i]}"
 done
 
-# printed_data=""
-# for data in "${all_data[@]}"
-# do
-#     # echo $data
-#     printed_data+="$(echo "$data" | xargs)"
-# done
-
-# echo $printed_data
-
-rm cr.tmp
+rm $FILE

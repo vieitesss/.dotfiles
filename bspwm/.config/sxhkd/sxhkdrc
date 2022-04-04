@@ -29,10 +29,10 @@ super + Escape
 # dunst
 
 ctrl + space
-    dunstcl close-all
+    dunstctl close-all
 
 ctrl + shift + space
-    dunstcl history-pop
+    dunstctl history-pop
 
 #
 # bspwm hotkeys
