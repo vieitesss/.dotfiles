@@ -5,7 +5,8 @@
 * {
     background-color:       @bg;
     text-color:             @fg;
-	font:				 	"Iosevka Nerd Font 10";
+	font:				 	"Iosevka Nerd Font 14";
+    horizontal-align:       0.5;
 }
 
 window {
