@@ -27,6 +27,9 @@ bspc rule -a "Yad" state=floating center=true
 bspc rule -a "Eog" state=floating center=true
 bspc rule -a "Rcommander" state=floating center=true
 bspc rule -a "R_x11" state=floating center=true
+bspc rule -a "com-cburch-logisim-Main" state=floating center=true
+bspc rule -a "Nm-connection-editor" state=floating center=true
+bspc rule -a "ensamblador-Ensamblador" state=tile
 
 # wallpaper
 sleep 0.1

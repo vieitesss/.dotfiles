@@ -19,6 +19,7 @@ declare -A packages=(
 ["ripgrep"]="rgrep"
 ["blueman-manager"]="blueman"
 ["i3lock"]="i3lock"
+["wmctrl"]="wmctrl"
 )
 
 for i in ${!packages[@]}

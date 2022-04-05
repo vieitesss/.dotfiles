@@ -8,7 +8,13 @@ DEFAULT_ID="2PRLCVGC"
 mkdir -p $DIR > /dev/null
 
 if [[ -n $1 || ! -s $ID ]]; then
-    zenity --entry --text "Enter your CR ID:" > $ID
+    new_id=$(zenity --entry --text "Enter your CR ID:" | xargs)
+    if [[ "${#new_id}" -eq "8" ]]; then
+        echo "$new_id" > "$ID"
+    else
+        dunstify -u critical -i warning -t 5000 "The ID is not valid"
+        exit 0
+    fi
 fi
 
 dunstify "Searching data..."

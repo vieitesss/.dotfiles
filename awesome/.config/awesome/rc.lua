@@ -474,10 +474,16 @@ awful.key({ modkey, "Shift"}, ",", function () os.execute(string.format("file=$H
 -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 3") end,
 --           {description = "-10%", group = "hotkeys"}),
 -- mac
-awful.key({  }, "XF86MonBrightnessUp", function () awful.spawn.with_shell(string.format("sudo echo $(($(sudo cat %s) +3)) > %s", os.getenv("HOME") .. "/brightness", os.getenv("HOME") .. "/brightness")) end,
-            {description = "+10%", group = "hotkeys"}),
-awful.key({  }, "XF86MonBrightnessDown", function () os.execute(string.format("sudo echo $(($(sudo cat %s) -3)) > %s", os.getenv("HOME") .. "/brightness", os.getenv("HOME") .. "/brightness")) end,
-            {description = "-10%", group = "hotkeys"}),
+awful.key({  }, "XF86MonBrightnessUp", function ()
+                    awful.spawn.with_shell("brightnessctl --device=acpi_video0 set 5%+")
+                    awful.spawn.with_shell("/home/vieites/.config/dunst/scripts/brightness.sh screen")
+                end,
+            {description = "-5%", group = "hotkeys"}),
+awful.key({  }, "XF86MonBrightnessDown", function ()
+                    awful.spawn.with_shell("brightnessctl --device=acpi_video0 set 5%-")
+                    awful.spawn.with_shell("/home/vieites/.config/dunst/scripts/brightness.sh screen")
+                end,
+            {description = "-5%", group = "hotkeys"}),
 
 awful.key({ modkey }, "=", function () 
     os.execute("xrandr --output DVI-D-0 --brightness 1") 
@@ -738,7 +744,8 @@ awful.rules.rules = {
           "VirtualBox",
           "Rcommander",
           "Toplevel",
-          "TkFDialog"
+          "TkFDialog",
+          "Nm-connection-editor"
         },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
