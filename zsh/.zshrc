@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 # CONFIG
-export DOTFILES="/home/$USER/.dotfiles"
+export DOTFILES="/home/vieites/.dotfiles"
 export HOSTNAME=$(hostname)
 export POLYBAR="dracula"
 

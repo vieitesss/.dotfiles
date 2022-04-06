@@ -773,6 +773,10 @@ awful.rules.rules = {
       properties = { screen = number_of_screens, tag = "1" } },
 }
 
+for _, preset in ipairs(naughty.config.presets) do
+    preset.position = "bottom_right"
+end
+
 -- }}}
 
 -- {{{ Signals
