@@ -6,7 +6,7 @@ alias la='exa -al --group-directories-first'       # Compact view, show hidden
 alias s="sudo"
 alias install="sudo apt install"
 alias remove="sudo apt remove"
-alias find="sudo find . -iname" #search from current directory
+alias purge="sudo apt purge"
 alias dot="cd $DOTFILES"
 
 # bat

@@ -44,8 +44,9 @@ export PATH
 
 source "$DOTFILES/aliases/general.aliases.bash"
 source "$DOTFILES/aliases/git.aliases.bash"
-source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOME/.zsh/sudo.plugin.zsh"
+source "/home/vieites/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "/home/vieites/.zsh/sudo.plugin.zsh"
+source "/home/vieites/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 . "$HOME/.cargo/env"
 

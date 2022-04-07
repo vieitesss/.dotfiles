@@ -264,83 +264,6 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 -- }}}
-
-function getOption(cmd, raw)
-local f = assert(io.popen(cmd, 'r'))
-local s = assert(f:read('*a'))
-f:close()
-if raw then return s end
-s = string.gsub(s, '^%s+', '')
-s = string.gsub(s, '%s+$', '')
-s = string.gsub(s, '[\n\r]+', ' ')
-return s
-end
-
-local function delete_tag()
-local t = awful.screen.focused().selected_tag
-if not t then return end
-t:delete()
-end
-
-local function add_tag()
-awful.tag.add("4", {
-    screen = awful.screen.focused(),
-    layout = awful.layout.suit.tile }):view_only()
-
-rename_tag()
-end
-
-function rename_tag()
-newName = getOption('echo \"Term\nBrowser\nFiles\nDevelop\nDoc\" | rofi -theme \"/home/vieites/.config/polybar/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Tag name:\"', nil)
-
-if newName == "Term" then
-    newName = "1"
-elseif newName == "Browser" then
-    newName = "2"
-elseif newName == "Files" then
-    newName = "3"
-elseif newName == "Develop" then
-    newName = "4"
-elseif newName == "Doc" then
-    newName = "5"
-else
-    return
-end
-
-local t = awful.screen.focused().selected_tag
-if t then
-    t.name = newName
-end
-end
-
-local function move_to_new_tag()
-local c = client.focus
-if not c then return end
-
-local t = awful.tag.add(c.class,{screen= c.screen })
-c:tags({t})
-t:view_only()
-
-rename_tag()
-end
-
-
-function tags()
-ans = getOption('echo \" \n[n]ew\n[r]ename\n[d]elete\n[m]ove\" | rofi -theme \"/home/vieites/.config/polybar/scripts/rofi/confirm.rasi\" -dmenu -i -no-fixed-num-lines -p \"Acción:\"', nil)
-
-if ans == "[n]ew" then
-    add_tag()
-elseif ans == "[r]ename" then
-    rename_tag()
-elseif ans == "[d]elete" then
-    delete_tag()
-elseif ans == "[m]ove" then
-    move_to_new_tag()
-else
-    return
-end
-end
-
 -- {{{ Mouse bindings
 
 root.buttons(mytable.join(
@@ -350,6 +273,9 @@ awful.button({ }, 5, awful.tag.viewprev)
 ))
 
 -- }}}
+
+-- Notifications
+beautiful.notification_icon_size = 32
 
 -- {{{ Key bindings
 
@@ -362,6 +288,11 @@ awful.key({ modkey }, "e", tags,
 -- Destroy all notifications
 awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
             {description = "destroy all notifications", group = "hotkeys"}),
+
+awful.key({ "Control", "Shift" }, "space", function() naughty.notify({
+    preset = naughty.config.presets.normal, text = "hola", icon = "warning"
+}) end,
+            {description = "throw notification", group = "hotkeys"}),
 
 --awful.key({  })
 
@@ -467,6 +398,10 @@ awful.key({ modkey, "Shift"}, ".", function () os.execute(string.format("file=$H
 
 awful.key({ modkey, "Shift"}, ",", function () os.execute(string.format("file=$HOME/.config/alacritty/alacritty.yml && cambiar=$(sed '153!d' $file) && sed -i \"s/$cambiar/  size: $(($(echo \"$cambiar\" | awk '{print $2}') - 1))/\" $file")) end,
             {description = "-1 alacritty font", group = "hotkeys"}),
+
+-- Keyboard layout
+awful.key({ altkey, }, "Tab", function () os.execute("/home/vieites/.config/awesome/scripts/kblayout") end,
+            {description = "toggle keyboard layout", group = "hotkeys"}),
 
 -- Screen brightness
 -- awful.key({  }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
