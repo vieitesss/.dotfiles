@@ -791,7 +791,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun=true
 autorunApps={
     "$HOME/.config/awesome/initawesome.sh",
-    "~/.config/polybar/launch.sh awesome"
+    "~/.config/polybar/launch.sh"
 }
 
 if autorun then

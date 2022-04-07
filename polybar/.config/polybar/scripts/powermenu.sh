@@ -32,7 +32,8 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$suspend\n$logout\n$reboot\n$shutdown\n$lock"
+# options="$suspend\n$logout\n$reboot\n$shutdown\n$lock"
+options="$suspend\n$logout\n$reboot\n$shutdown"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
 case $chosen in
@@ -86,14 +87,14 @@ case $chosen in
 			msg
         fi
         ;;
-    $lock)
-		ans=$(confirm_exit &)
-		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-            i3lock -f -i $HOME/.dotfiles/wallpapers/lock.png
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
-        else
-			msg
-        fi
-        ;;
+		#     $lock)
+		# ans=$(confirm_exit &)
+		# if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+		#             i3lock -f -i $HOME/.dotfiles/wallpapers/lock.png
+		# elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+		# 	exit 0
+		#         else
+		# 	msg
+		#         fi
+		#         ;;
 esac

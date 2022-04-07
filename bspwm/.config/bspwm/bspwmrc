@@ -2,22 +2,23 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-if type "xrandr"; then
-    declare -i d=1
-    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        # 2 desktops per monitor
-        bspc monitor "$m" -d "$d" "$(($d + 1))"
-        let $d+=2
-    done
+monitor1=$(xrandr | grep " connected" | head -n 1 | awk '{print $1}')
+if [[ "$(xrandr | grep " connected" | wc -l)" -eq "2" ]]; then
+    monitor2=$(xrandr | grep " connected" | tail -n 1 | awk '{print $1}')
+    bspc monitor $monitor1 -d 1 2 3
+    bspc monitor $monitor2 -d 4 5 6
+else
+    bspc monitor $monitor1 -d 1 2 3
 fi
+
 
 bspc config border_width         2
 bspc config window_gap          12
 bspc config focused_border_color "#f8f8f8"
 
 bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
 
 # rules
 bspc rule -a "VirtualBox Manager" state=floating center=true
@@ -33,7 +34,7 @@ bspc rule -a "ensamblador-Ensamblador" state=tile
 
 # wallpaper
 sleep 0.1
-feh --bg-scale ./.dotfiles/wallpapers/bg_1.jpg &
+feh --bg-scale --randomize ./.dotfiles/wallpapers/* &
 
 # cursor
 xsetroot -cursor_name left_ptr &
@@ -53,7 +54,7 @@ compton -b &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &
-$HOME/.config/polybar/launch.sh bspwm &
+$HOME/.config/polybar/launch.sh &
 
 dunst -conf $HOME/.config/dunst/dunstrc &
 killall battery.sh > /dev/null

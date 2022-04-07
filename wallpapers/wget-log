@@ -1,17 +1,0 @@
---2022-03-31 09:28:45--  http://./bg_1.jpeg
-Resolviendo . (.)... falló: Fallo temporal en la resolución del nombre.
-wget: no se pudo resolver la dirección del equipo “.”
---2022-03-31 09:28:45--  https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3VHWgvL2Hqy_TZYLtopMkQHaEo%26pid%3DApi
-Resolviendo external-content.duckduckgo.com (external-content.duckduckgo.com)... 40.114.178.124
-Conectando con external-content.duckduckgo.com (external-content.duckduckgo.com)[40.114.178.124]:443... conectado.
-Petición HTTP enviada, esperando respuesta... 200 OK
-Longitud: no especificado [image/jpeg]
-Guardando como: “index.html?u=https:%2F%2Ftse3.mm.bing.net%2Fth?id=OIP.3VHWgvL2Hqy_TZYLtopMkQHaEo&pid=Api”
-
-             index.html?u=     [<=>                                     ]       0  --.-KB/s               index.html?u=https:%2F%2Ft     [ <=>                                    ]   9,42K  --.-KB/s    en 0s      
-
-2022-03-31 09:28:46 (118 MB/s) - “index.html?u=https:%2F%2Ftse3.mm.bing.net%2Fth?id=OIP.3VHWgvL2Hqy_TZYLtopMkQHaEo&pid=Api” guardado [9646]
-
-ACABADO --2022-03-31 09:28:46--
-Tiempo total de reloj: 0,9s
-Descargados: 1 ficheros, 9,4K en 0s (118 MB/s)
