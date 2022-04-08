@@ -31,6 +31,7 @@ bspc rule -a "R_x11" state=floating center=true
 bspc rule -a "com-cburch-logisim-Main" state=floating center=true
 bspc rule -a "Nm-connection-editor" state=floating center=true
 bspc rule -a "ensamblador-Ensamblador" state=tile
+bspc rule -a "Arandr" state=floating center=true
 
 # wallpaper
 sleep 0.1
