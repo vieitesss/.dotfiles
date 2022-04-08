@@ -55,8 +55,6 @@ compton -b &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/launch.sh bspwm &
 
 dunst -conf $HOME/.config/dunst/dunstrc &
-killall battery.sh > /dev/null
-$HOME/.config/dunst/scripts/battery.sh
