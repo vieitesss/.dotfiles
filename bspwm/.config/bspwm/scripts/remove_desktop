@@ -1,7 +1,8 @@
 #!/bin/bash
+current_desktop=$(bspc query -D -d focused)
 
 if [[ $(bspc query -N -d focused | wc -l) == 0 && $(bspc query -D -m focused | wc -l) > 3 ]]; then
-  current_desktop=$(bspc query -D -d focused)
+    current_desktop=$(bspc query -D -d focused)
     bspc desktop ${current_desktop} --remove
     $HOME/.config/bspwm/scripts/renumber_desktops
 fi

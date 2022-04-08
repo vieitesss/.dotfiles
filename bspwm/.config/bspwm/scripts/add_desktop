@@ -1,9 +1,10 @@
 #!/bin/bash
 
+n_desktops=$(bspc query -D | wc -l)
 new_workspace=$(( $n_desktops + 1 ))
+
 current_monitor=$(bspc query -M -m focused)
 last_monitor=$(bspc query -M | tail -n 1)
-current_desktop=$(bspc query -D -d focused)
 
 bspc monitor ${last_monitor} --add-desktops ${new_workspace}
 # Renumber the desktops (this is necessary to maintain proper numbering order in multihead setups)
