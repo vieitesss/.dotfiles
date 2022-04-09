@@ -81,6 +81,7 @@
     background = "#21222D"
     foreground = "#EEEEEE"
     frame_color = "#EEEEEE"
+    highlight = "#488566"
     default_icon = campana
     timeout = 5
 
