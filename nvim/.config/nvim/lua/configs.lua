@@ -5,6 +5,9 @@ local buffer = vim.bo
 -- General
 vim.cmd([[filetype plugin indent on]])
 
+-- Ignore case
+vim.cmd([[set ignorecase]])
+
 -- Colorscheme
 global.background = "dark"
 vim.cmd([[colorscheme dracula]])
