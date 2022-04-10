@@ -4,28 +4,56 @@ These are all of my configurations. They are prepared to work in my workspace, b
 
 Every help or improvement is welcome. You can contact me through [IG](https://www.instagram.com/vieitesss_/) or [TW](https://twitter.com/vieitesss_/)
 
-If you like my configs, you can give me a star, it makes me very happy and encourage me to keep ge
+If you like my configs, you can give me a star, it helps me a lot and makes me very happy.
+
+# Requirements
+
+All you need if you want to use my configs:
+
+* git
+* alacritty
+* starship
+* stow
+* bspwm
+* sxhkd
+* nvim
+* polybar
+* dunst
+* compton
+* awesomewm (I'm not using it, so some things may not work perfectly)
+* bat
+* exa
+* ibus
+* flameshot
+* python
+* cargo
+* rust
+* nodejs
+* brightnessctl
+
+There are many other, but you can take a look to all of the installation guides from the main repositories.
+
+# Installation
+
+'''
+git clone https://www.github.com/vieitesss/.dotfiles ~/.dotfiles
+'''
+
+I am trying to make installation scripts work perfectly. They are stored in the [setup](./setup)
+
+For now, you can try and run it one by one, choosing those you want, and see if they work.
+
+As I said above, any improvement is welcome.
+
+Once you have everything you need installed, all you need now is [**stow**](https://www.gnu.org/software/stow/manual/stow.html#Invoking-Stow).
+
+To make stow work as we want, make sure this repo is cloned in your $HOME directory. Now, you only have to run '''stow [**folder of the repository**]''' and it will create a link and all the folder tree in your $HOME directory.
+
 ```bash
 for folder in this_repo
     stow $folder
 done
 ```
-
-Brightness:
-
-Si no va el brillo, crear un link al directorio /sys/class/backlight/.../brightness, con nombre "brightness" en el HOME
-Lo mismo para el archivo del brillo del teclado /sys/class/leds/.../brightness, con nombre "kbdbrightness"
-
-Cambio de idioma:
-
-ibus-setup
-ibus-daemon
-
-Hace falta reiniciar
-
-Fuentes:
-
-Clonar https://github.com/powerline/fonts.git --depth=1 e instalar las fuentes con fonts/install.sh
 
 NVIM:
 
