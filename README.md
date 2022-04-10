@@ -1,14 +1,10 @@
-# dotfiles
+# Dotfiles
 
-```bash
-:CocInstall 
-    coc-sh
-    coc-java
-    coc-json
-    coc-clangd
-    coc-lua
-```
+These are all of my configurations. They are prepared to work in my workspace, but I am trying to make it run in every computer with Linux.
 
+Every help or improvement is welcome. You can contact me through [IG](https://www.instagram.com/vieitesss_/) or [TW](https://twitter.com/vieitesss_/)
+
+If you like my configs, you can give me a star, it makes me very happy and encourage me to keep ge
 ```bash
 for folder in this_repo
     stow $folder
