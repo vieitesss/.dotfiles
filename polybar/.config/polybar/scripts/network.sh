@@ -2,12 +2,11 @@
 
 network="$1"
 
-data=$(nmcli | grep "${network}: " | head -n 1)
-status=$(echo "$data" | awk '{print $2}')
+data=$(nmcli | grep " conectado" | wc -l)
 
-if [[ "$status" = "desconectado" ]]; then
+if [[ "$data" = "0" ]]; then
     echo "%{F#bd93f8}睊 %{F#ffffff}Offline"
-elif [[ "$status" = "conectado" ]]; then
-    wifi=$(echo "$data" | awk '{print $4}')
-    echo "%{F#bd93f8}直 %{F#ffffff}$wifi"
+else
+    net=$(nmcli | grep " conectado" | head -n 1 | awk '{print $4}')
+    echo "%{F#bd93f8}直 %{F#ffffff}$net"
 fi
