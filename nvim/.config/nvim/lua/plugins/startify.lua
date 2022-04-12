@@ -8,8 +8,9 @@ vim.g.startify_lists = {
 }
 
 vim.g.startify_bookmarks = {
-    { d = '~/.dotfiles/defaultdots' },
-    { a = '~/.dotfiles/awesome/.config/awesome' },
+    { b = '~/.dotfiles/awesome/.config/bspwm/.config/bspwm' },
+    { s = '~/.dotfiles/awesome/.config/bspwm/.config/sxhkd' },
+    { d = '~/.dotfiles/awesome/.config/dunst' },
     { n = '~/.dotfiles/nvim/.config/nvim' },
-    { p = '~/.dotfiles/polybar/.config/polybar/forest' }
+    { p = '~/.dotfiles/polybar/.config/polybar' }
 }

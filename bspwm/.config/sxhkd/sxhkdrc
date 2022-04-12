@@ -14,10 +14,6 @@ super + p
 super + q
     /home/vieites/.config/polybar/scripts/powermenu.sh
 
-# colorscheme
-super + shift + p
-    /home/vieites/.config/polybar/scripts/style-switch.sh
-
 # launch firefox
 super + b
     firefox &
