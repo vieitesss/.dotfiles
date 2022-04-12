@@ -37,4 +37,5 @@ return require('packer').startup(function()
     use 'voldikss/vim-floaterm'
     use { 'lewis6991/gitsigns.nvim', config = function () require('gitsigns').setup() end }
     use 'davidgranstrom/nvim-markdown-preview'
+    use 'CRAG666/code_runner.nvim'
 end)
