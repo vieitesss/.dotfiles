@@ -62,10 +62,10 @@ As statusbar, I personally use [Polybar](https://github.com/polybar/polybar). Yo
 
 About this, I want to explain how its [launch.sh](/polybar/.config/polybar/launch.sh) works.
 
-The most important thing is the fact that you have to execute the script including a parameter, that is the name of the bar you want to run.
+The most important thing is the fact that you have to execute the script including two parameters: the name of the bar you want to execute and the theme.
 
 ```bash
-/path/to/my/polybar/launch.sh [bar_name]
+/path/to/my/polybar/launch.sh [bar_name] [theme]
 ``` 
 
 I have done it like this because I have configured two different bars, one for bspwm and other for awesomewm (I am not currently using this WM).

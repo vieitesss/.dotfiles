@@ -8,11 +8,11 @@ super + Return
 
 # program launcher
 super + p
-    /home/vieites/.config/polybar/scripts/launcher.sh
+    /home/vieites/.config/polybar/rounded/scripts/launcher.sh
 
 # powermenu
 super + q
-    /home/vieites/.config/polybar/scripts/powermenu.sh
+    /home/vieites/.config/polybar/rounded/scripts/powermenu.sh
 
 # launch firefox
 super + b

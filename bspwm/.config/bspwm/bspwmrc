@@ -35,7 +35,7 @@ bspc rule -a "Arandr" state=floating center=true
 
 # wallpaper
 sleep 0.1
-feh --bg-scale --randomize ./.dotfiles/wallpapers/* &
+feh --bg-scale ./.dotfiles/wallpapers/astronaut.jpg &
 
 # cursor
 xsetroot -cursor_name left_ptr &
@@ -55,6 +55,6 @@ compton -b &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &
-$HOME/.config/polybar/launch.sh bspwm &
+$HOME/.config/polybar/launch.sh bspwm rounded &
 
 dunst -conf $HOME/.config/dunst/dunstrc &

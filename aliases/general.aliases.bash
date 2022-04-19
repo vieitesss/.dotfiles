@@ -10,9 +10,9 @@ alias purge="sudo apt purge"
 alias dot="cd $DOTFILES"
 
 # bat
-alias cat="/bin/bat"
+alias cat="/home/vieites/.cargo/bin/bat"
 alias catn="/bin/cat"
-alias catnl="/bin/bat --paging=never"
+alias catnl="/home/vieites/.cargo/bin/bat --paging=never"
 
 # Shortcuts to edit startup files
 alias vbrc="vim ~/.bashrc"
