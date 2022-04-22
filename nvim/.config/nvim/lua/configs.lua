@@ -11,6 +11,7 @@ vim.cmd([[set ignorecase]])
 -- Colorscheme
 global.background = "dark"
 vim.cmd([[colorscheme dracula]])
+vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 
 -- Indent
 global.autoindent = true
