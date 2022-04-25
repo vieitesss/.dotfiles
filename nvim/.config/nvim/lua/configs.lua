@@ -22,7 +22,7 @@ global.shiftwidth = 4
 global.shiftround = true
 
 -- Block when insert
-vim.cmd([[set guicursor=i:block]])
+-- vim.cmd([[set guicursor=i:block]])
 
 -- Numbers
 window.number = true
@@ -58,3 +58,11 @@ global.hidden = true
 
 -- Clipboard
 global.clipboard = "unnamedplus"
+
+-- Status line
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function ()
+        vim.cmd[[set laststatus=3]]
+    end
+})

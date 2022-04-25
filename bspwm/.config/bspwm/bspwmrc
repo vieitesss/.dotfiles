@@ -32,6 +32,7 @@ bspc rule -a "com-cburch-logisim-Main" state=floating center=true
 bspc rule -a "Nm-connection-editor" state=floating center=true
 bspc rule -a "ensamblador-Ensamblador" state=tiling
 bspc rule -a "Arandr" state=floating center=true
+bspc rule -a "Gnome-calculator" state=floating center=true
 
 # wallpaper
 sleep 0.1
@@ -51,7 +52,7 @@ else
     ~/.screen_layout.sh &
 fi
 ~/.screensaver.sh &
-compton -b &
+compton &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &

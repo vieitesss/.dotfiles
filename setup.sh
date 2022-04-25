@@ -22,10 +22,12 @@ error () {
 }
 
 install-basics () {
-basics=("cargo" "bat" "flameshot" "git" "ibus" "stow" "bspwm" "sxhkd" "curl" "wget" "brightnessctl")
+basics=("bat" "cargo" "flameshot" "git" "ibus" "stow" "bspwm" "sxhkd" "curl" "wget" "brightnessctl")
 
 for b in "${basics[@]}"; do
-    if ! command -v $b > /dev/null; then
+    which $b; if [[ "$(echo $?)" -eq "0" ]]; then
+        printf "${BLUE}%-14s ${GREEN}%3s${NC}\n" $b "[V]"
+    else
         printf "${BLUE}%-14s ${RED}%3s${NC}\n" $b "[X]"
         printf "${ORANGE}Installing $b... ${NC}\n" $b
 
@@ -36,10 +38,8 @@ for b in "${basics[@]}"; do
         else
             printf "${BLUE}%-14s ${GREEN}%3s${NC}\n" $b "[V]"
         fi
-    else
-        printf "${BLUE}%-14s ${GREEN}%3s${NC}\n" $b "[V]"
     fi
-    # sleep 0.5
+    sleep 1
 done
 
 printf "\n${GREEN}All basics installed!${NC}\n\n"
@@ -83,7 +83,7 @@ main () {
     tput civis
 
     install-basics 
-    install-alacritty
+    # install-alacritty
 
     tput cnorm
 }
