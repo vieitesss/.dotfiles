@@ -52,7 +52,7 @@ else
     ~/.screen_layout.sh &
 fi
 ~/.screensaver.sh &
-compton &
+picom -b &
 flameshot &
 pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)
 ibus-daemon &

@@ -3,15 +3,15 @@ local window = vim.wo
 local buffer = vim.bo
 
 -- General
-vim.cmd([[filetype plugin indent on]])
+vim.api.nvim_command("filetype plugin indent on")
 
 -- Ignore case
-vim.cmd([[set ignorecase]])
+vim.api.nvim_command("set ignorecase")
 
 -- Colorscheme
 global.background = "dark"
-vim.cmd([[colorscheme dracula]])
-vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+vim.api.nvim_command("colorscheme dracula")
+vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
 
 -- Indent
 global.autoindent = true
@@ -63,6 +63,6 @@ global.clipboard = "unnamedplus"
 vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
     callback = function ()
-        vim.cmd[[set laststatus=3]]
+        vim.api.nvim_command("set laststatus=3")
     end
 })
