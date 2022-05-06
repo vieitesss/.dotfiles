@@ -37,10 +37,16 @@ keymap('n', '<Leader>bb', ':buffer')
 keymap('n', '<Leader>ve', ':e ~/.config/nvim<CR>', s)
 
 -- reload file
-keymap('n', '<Leader>rf', ':so %<CR>', s)
+keymap('n', '<Leader>so', ':so %<CR>', s)
 
 -- make session
 keymap('n', '<Leader>mk', ':lua makeSession(".vim")<CR>', s)
+
+-- Startify
+keymap('n', '<C-s>', '<cmd>Startify<CR>', s)
+
+-- Run File
+keymap('n', '<Leader>rf', '<cmd>RunCode<CR>', s)
 
 function makeSession(dir)
     local ok, err = isdir(dir)
@@ -74,7 +80,7 @@ function isdir(path)
 end
 
 -- packer
-keymap('n', '<Leader>ps', ':PackerSync<CR>', n)
+keymap('n', '<Leader>ps', ':PackerSync<CR>')
 
 -- lsp
 keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', s)
