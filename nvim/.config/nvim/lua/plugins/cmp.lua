@@ -45,6 +45,9 @@ cmp.setup {
             vim.fn["vsnip#anonymous"](args.body)
         end,
     },
+    window = {
+        documentation = cmp.config.window.bordered()
+    },
     mapping = {
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -78,6 +81,8 @@ cmp.setup {
     sources = {
         { name = 'vsnip' },
         { name = 'nvim_lsp'},
+        { name = 'buffer'},
+        { name = 'path'},
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -93,9 +98,6 @@ cmp.setup {
         })[entry.source.name]
         return vim_item
         end,
-    },
-    documentation = {
-        border = {  "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
