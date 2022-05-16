@@ -66,3 +66,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.api.nvim_command("set laststatus=3")
     end
 })
+
+

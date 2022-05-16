@@ -8,7 +8,7 @@ if [[ "$(xrandr | grep " connected" | wc -l)" -eq "2" ]]; then
     bspc monitor $monitor1 -d 1 2 3
     bspc monitor $monitor2 -d 4 5 6
 else
-    bspc monitor $monitor1 -d 1 2 3
+    bspc monitor $monitor1 -d 1 2 3 4 5
 fi
 
 
