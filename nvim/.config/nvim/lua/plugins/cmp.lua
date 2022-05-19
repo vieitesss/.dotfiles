@@ -1,6 +1,8 @@
 vim.o.completeopt = 'menuone,noselect'
 
 local cmp = require('cmp')
+-- local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -11,100 +13,76 @@ local feedkey = function(key, mode)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-}
-
 cmp.setup {
     snippet = {
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- luasnip.lsp_expand(args.body)
         end,
     },
     window = {
         documentation = cmp.config.window.bordered()
     },
-    mapping = {
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
+    mapping = cmp.mapping.preset.insert({
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-l>"] = cmp.mapping(function(fallback)
+            -- if cmp.visible() then
+            --     cmp.close()
+            if vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
             else
                 fallback()
             end
         end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function()
+        ["<C-j>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif has_words_before() then
+                cmp.complete()
+            else 
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<C-k>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif vim.fn["vsnip#jumpable"](-1) == 1 then
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end
-        end, { "i", "s" }),    },
-
-    sources = {
-        { name = 'vsnip' },
+        end, { "i", "s" }),
+        ["<Tab>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        },
+        ["<c-space>"] = cmp.mapping.complete(),
+    }),
+    sources = cmp.config.sources({
+        { name = 'vsnip'},
         { name = 'nvim_lsp'},
-        { name = 'buffer'},
         { name = 'path'},
+        -- { name = 'luasnip'},
     },
+    {
+        {name = 'buffer'}
+    }),
     formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-        -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        vim_item.menu = ({
-            vsnip = "[Snippet]",
-            nvim_lsp = "[LSP]",
-            -- buffer = "[Buffer]",
-            -- path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-        end,
+        format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+                vsnip = "[VSnip]",
+                nvim_lsp = "[LSP]",
+                buffer = "[BUF]"
+                -- luasnip = "[LuaSnip]",
+            }
+        }
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
     experimental = {
-        native_menu = false,
+        -- native_menu = false,
         ghost_text = true,
     },
 }

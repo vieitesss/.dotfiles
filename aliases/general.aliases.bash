@@ -71,21 +71,8 @@ alias rd='rmdir'
 alias xt="extract"
 
 # editors
-alias vim=checkSession
-alias v=checkSession
-
-checkSession ()
-{
-    if [ $# -gt 0 ]; then
-        nvim $1
-    elif [ -f .vim/session.vim ]; then
-        nvim -S .vim/session.vim
-    else
-        nvim
-    fi
-}
-
-# alias logisim="java -jar /opt/logisim/logisim-2.7.1_GAC_v2.0.jar &"
+alias v=nvim
+alias vim=nvim
 
 # sudo editors
 alias svim="sudo vim"

@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # program launcher
 super + p
@@ -40,9 +40,9 @@ super + ctrl + {q,r}
 
 # close and kill
 super + shift + c
-	bspc node -c;\
-    sleep 0.1;\
-    /home/vieites/.config/bspwm/scripts/remove_desktop
+	bspc node -c;
+    # sleep 0.1;\
+    # /home/vieites/.config/bspwm/scripts/remove_desktop
 
 # alternate between the tiled and monocle layout
 super + m
@@ -108,8 +108,8 @@ super + {o,i}
 	bspc wm -h on
 
 # new desktop
-super + {_,shift + } 0
-    {/home/vieites/.config/bspwm/scripts/add_desktop,/home/vieites/.config/bspwm/scripts/remove_desktop}
+# super + {_,shift + } 0
+    # {/home/vieites/.config/bspwm/scripts/add_desktop,/home/vieites/.config/bspwm/scripts/remove_desktop}
 
 # focus dektop
 super + {1-9}

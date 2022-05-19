@@ -1,5 +1,6 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
+
     ---- colorschemes
 	use 'morhetz/gruvbox'
     use 'Mofiqul/dracula.nvim'
@@ -7,16 +8,20 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use { 'tami5/lspsaga.nvim', config = function () require('lspsaga').setup() end }
+    use 'onsails/lspkind.nvim'
     ---- cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     ---- snippets
     use 'hrsh7th/vim-vsnip-integ'
     use 'rafamadriz/friendly-snippets'
+    -- use 'L3MON4D3/LuaSnip'
+    -- use 'saadparwaiz1/cmp_luasnip'
+
     ---- programming utils
     use 'lervag/vimtex'
     use 'davidgranstrom/nvim-markdown-preview'
@@ -38,7 +43,7 @@ return require('packer').startup(function()
             'nvim-lua/popup.nvim',
         }
     }
-    use 'mhinz/vim-startify'
+    -- use 'mhinz/vim-startify'
     use 'voldikss/vim-floaterm'
     use { 'lewis6991/gitsigns.nvim', config = function () require('gitsigns').setup() end }
 end)
