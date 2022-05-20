@@ -36,7 +36,7 @@ bspc rule -a "Gnome-calculator" state=floating center=true
 
 # wallpaper
 sleep 0.1
-feh --bg-scale ./.dotfiles/wallpapers/astronaut.jpg &
+feh --bg-scale ./.dotfiles/wallpapers/gruvbox_astronaut.jpg &
 
 # cursor
 xsetroot -cursor_name left_ptr &

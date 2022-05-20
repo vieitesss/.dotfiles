@@ -10,7 +10,7 @@ vim.api.nvim_command("set ignorecase")
 
 -- Colorscheme
 global.background = "dark"
-vim.api.nvim_command("colorscheme dracula")
+vim.api.nvim_command("colorscheme gruvbox")
 vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
 
 -- Indent
