@@ -1,15 +1,20 @@
-require('plugs')
-require('keymaps')
-require('configs')
+require 'globals'
 
--- Plugins config
-require('plugins/lualine')
-require('plugins/lsp')
-require('plugins/cmp')
-require('plugins/treesitter')
-require('plugins/telescope')
-require('plugins/comments')
-require('plugins/vimtex')
-require('plugins/code_runner')
-require('plugins/nvimtree')
--- require('plugins/luasnip')
+if require'vt.first_load'() then
+    return
+end
+
+-- Leader key = <Space>
+vim.g.mapleader = ' '
+
+require 'plugins'
+
+require 'vt/lualine'
+require 'vt/lsp'
+require 'vt/treesitter'
+require 'vt/telescope'
+require 'vt/vimtex'
+require 'vt/code_runner'
+require 'vt/nvimtree'
+require 'vt/bufferline'
+-- require 'vt/luasnip'
