@@ -1,6 +1,7 @@
 # Dotfiles
 
 ![My desktop](/assets/bspwm-desktop.png)
+![My desktop](/assets/bspwm-desktop-gruvbox.png)
 
 These are all of my configurations. They are prepared to work in my workspace, but I am trying to make it run in every computer with Linux.
 
@@ -12,6 +13,7 @@ All you need if you want to use my configs:
 
 * git
 * alacritty
+* kitty
 * starship
 * stow
 * bspwm
