@@ -34,17 +34,14 @@ keymap('n', '<Leader>bn', ':bnext<CR>')
 keymap('n', '<Leader>bd', ':bd<CR>')
 keymap('n', '<Leader>bb', ':buffer')
 
--- edit init.lua
-keymap('n', '<Leader>ve', ':e ~/.config/nvim<CR>', s)
-
 -- reload file
 keymap('n', '<Leader>so', ':so %<CR>', s)
 
--- Startify
-keymap('n', '<C-s>', '<cmd>Startify<CR>', s)
-
 -- Run File
 keymap('n', '<Leader>rf', '<cmd>RunCode<CR>', s)
+
+-- Treesitter
+keymap('n', '<Leader>rt', '<cmd>e<CR>', s)
 
 -- packer
 keymap('n', '<Leader>ps', ':PackerSync<CR>')
@@ -61,19 +58,21 @@ keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', s)
 keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', s)
 keymap('n', 'gr', ':Telescope lsp_references<CR>', s)
 keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', s)
-keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', s)
-keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', s)
+keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', s)
+keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', s)
 keymap('n', '<space>dl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', s)
-keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', s)
+keymap('n', '<space>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', s)
 
 -- nvim-tree
-keymap('n', '<Leader>pv', ':NvimTreeToggle<CR>', s)
+-- keymap('n', '<Leader>pv', ':NvimTreeToggle<CR>', s)
 
 -- telescope
 keymap('n', '<Leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 keymap('n', '<Leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 keymap('n', '<Leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 keymap('n', '<Leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]])
+keymap('n', '<Leader>fp', [[<cmd>lua require('telescope').extensions.project.project()<CR>]])
+keymap('n', '<Leader>pv', [[<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>]], s)
 keymap('n', '<Leader>dot', [[:lua require'vt.telescope'.search_dotfiles()<CR>]], s)
 keymap('n', '<Leader>nv', [[:lua require'vt.telescope'.search_nvim()<CR>]], s)
 

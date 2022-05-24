@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
             opt = true
         }
     }
-    use { 'akinsho/bufferline.nvim' , tag = "v2.*" }
+    -- use { 'akinsho/bufferline.nvim' , tag = "v2.*" }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'kyazdani42/nvim-tree.lua',
         requires = { 'kyazdani42/nvim-web-devicons' }
@@ -49,6 +49,8 @@ return require('packer').startup(function(use)
         }
     }
     use 'nvim-telescope/telescope-media-files.nvim'
+    use 'nvim-telescope/telescope-project.nvim'
+    use 'nvim-telescope/telescope-file-browser.nvim'
     -- use 'mhinz/vim-startify'
     use 'voldikss/vim-floaterm'
     use { 'lewis6991/gitsigns.nvim', config = function () require('gitsigns').setup() end }

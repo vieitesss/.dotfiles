@@ -5,6 +5,9 @@ local buffer = vim.bo
 -- General
 vim.api.nvim_command("filetype plugin indent on")
 
+-- Auto-formatting
+vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+
 -- Ignore case
 vim.api.nvim_command("set ignorecase")
 
@@ -12,6 +15,9 @@ vim.api.nvim_command("set ignorecase")
 global.background = "dark"
 vim.api.nvim_command("colorscheme gruvbox")
 vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
+
+-- Winbar
+global.winbar = "%m %f"
 
 -- Indent
 global.autoindent = true
@@ -61,13 +67,3 @@ global.hidden = true
 
 -- Clipboard
 global.clipboard = "unnamedplus"
-
--- Status line
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*",
-    callback = function ()
-        vim.api.nvim_command("set laststatus=3")
-    end
-})
-
-

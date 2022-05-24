@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -z $(which nvim) || $(nvim --version | head -n 1) != "NVIM v0.7.0" ]]; then
-    wget "https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage"
+if [[ -z $(which nvim) || $(nvim --version | head -n 1) != "NVIM v0.8.0" ]]; then
+    wget "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
     chmod u+x nvim.appimage
     sudo mv nvim.appimage /usr/local/bin/nvim
 else
