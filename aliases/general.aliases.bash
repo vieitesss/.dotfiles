@@ -8,6 +8,7 @@ alias install="sudo apt install"
 alias remove="sudo apt remove"
 alias purge="sudo apt purge"
 alias dot="cd $DOTFILES"
+alias pro="cd ~/projects/"
 
 # bat
 alias cat="/home/vieites/.cargo/bin/bat"
