@@ -62,4 +62,13 @@ M.search_nvim = function()
   })
 end
 
+M.search_projects = function()
+  builtin.find_files({
+    prompt_title = "My projects",
+    cwd = "~/projects/",
+    follow = true,
+    hidden = false
+  })
+end
+
 return M

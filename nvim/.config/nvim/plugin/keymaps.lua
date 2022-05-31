@@ -74,6 +74,7 @@ keymap('n', '<Leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR
 keymap('n', '<Leader>fp', [[<cmd>lua require('telescope').extensions.project.project()<CR>]])
 keymap('n', '<Leader>pv', [[<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>]], s)
 keymap('n', '<Leader>dot', [[:lua require'vt.telescope'.search_dotfiles()<CR>]], s)
+keymap('n', '<Leader>pro', [[:lua require'vt.telescope'.search_projects()<CR>]], s)
 keymap('n', '<Leader>nv', [[:lua require'vt.telescope'.search_nvim()<CR>]], s)
 
 -- floaterm
