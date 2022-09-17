@@ -12,9 +12,29 @@ vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_s
 vim.api.nvim_command("set ignorecase")
 
 -- Colorscheme
-global.background = "light"
-vim.g.catppuccin_flavour = "latte"
-vim.api.nvim_command("colorscheme catppuccin")
+function light()
+  global.background = "light"
+  vim.g.catppuccin_flavour = "latte"
+  vim.api.nvim_command("colorscheme catppuccin")
+end
+
+function dark()
+  global.background = "dark"
+  vim.api.nvim_command("colorscheme gruvbox")
+end
+
+function getTheme()
+  return vim.fn.system([[cat ~/.config/kitty/current-theme.conf | grep name: | awk '{print $3}']]):match("^%s*(.-)%s*$")
+end
+
+local theme = getTheme()
+
+if theme == "Gruvbox" then
+  dark()
+else
+  light()
+end
+
 -- vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
 
 -- Winbar

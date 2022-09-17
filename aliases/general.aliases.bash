@@ -23,6 +23,10 @@ alias nvd="cd ~/.config/nvim/"
 # ovftool
 alias ovftool="/usr/bin/vmware-ovftool/ovftool"
 
+# theme
+alias dark="kitty +kitten themes --reload-in=all Gruvbox Dark"
+alias light="kitty +kitten themes --reload-in=all Catppuccin-Latte"
+
 # colored grep
 # Need to check an existing file for a pattern that will be found to ensure
 # that the check works when on an OS that supports the color option
