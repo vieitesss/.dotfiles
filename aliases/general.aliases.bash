@@ -24,8 +24,16 @@ alias nvd="cd ~/.config/nvim/"
 alias ovftool="/usr/bin/vmware-ovftool/ovftool"
 
 # theme
-alias dark="kitty +kitten themes --reload-in=all Gruvbox Dark"
-alias light="kitty +kitten themes --reload-in=all Catppuccin-Latte"
+dark() {
+    kitty +kitten themes --reload-in=all Gruvbox Dark
+    export BAT_THEME="gruvbox-dark"
+}
+light() {
+    kitty +kitten themes --reload-in=all Catppuccin-Latte
+    export BAT_THEME="OneHalfLight"
+}
+alias dark=dark
+alias light=light
 
 # colored grep
 # Need to check an existing file for a pattern that will be found to ensure
@@ -103,6 +111,4 @@ catt() {
 # bash-it enable alias bash-it
 # shellcheck source=./bash-it.aliases.bash
 #source "$BASH_IT/aliases/available/bash-it.aliases.bash"
-alias lazygit='go run /opt/lazygit/main.go'
-alias lazygit='go run /opt/lazygit/main.go'
 alias lazygit='go run /opt/lazygit/main.go'
