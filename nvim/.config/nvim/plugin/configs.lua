@@ -12,9 +12,10 @@ vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_s
 vim.api.nvim_command("set ignorecase")
 
 -- Colorscheme
-global.background = "dark"
-vim.api.nvim_command("colorscheme gruvbox")
-vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
+global.background = "light"
+vim.g.catppuccin_flavour = "latte"
+vim.api.nvim_command("colorscheme catppuccin")
+-- vim.api.nvim_command("hi Normal guibg=NONE ctermbg=NONE")
 
 -- Winbar
 global.winbar = "%m %f"

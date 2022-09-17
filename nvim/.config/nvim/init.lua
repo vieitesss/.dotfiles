@@ -1,7 +1,7 @@
 require 'globals'
 
-if require'vt.first_load'() then
-    return
+if require 'vt.first_load' () then
+  return
 end
 
 -- Leader key = <Space>
