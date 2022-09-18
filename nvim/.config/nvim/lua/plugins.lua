@@ -5,11 +5,12 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   ---- colorschemes
-  use 'morhetz/gruvbox'
+  use 'ellisonleao/gruvbox.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'Shatur/neovim-ayu'
   use 'shaunsingh/solarized.nvim'
   use 'catppuccin/nvim'
+  use 'Th3Whit3Wolf/one-nvim'
   ---- lsp
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'

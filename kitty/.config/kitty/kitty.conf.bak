@@ -227,6 +227,6 @@ macos_option_as_alt no
 allow_remote_control yes
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark
+# Gruvbox Light
 include current-theme.conf
 # END_KITTY_THEME

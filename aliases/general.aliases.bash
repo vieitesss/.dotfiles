@@ -20,6 +20,9 @@ alias vbrc="vim ~/.bashrc"
 alias vrc="vim ~/.config/nvim/init.lua"
 alias nvd="cd ~/.config/nvim/"
 
+# c makefile
+alias makec="make -f ~/.dotfiles/c/Makefile"
+
 # ovftool
 alias ovftool="/usr/bin/vmware-ovftool/ovftool"
 
@@ -29,8 +32,8 @@ dark() {
     export BAT_THEME="gruvbox-dark"
 }
 light() {
-    kitty +kitten themes --reload-in=all Catppuccin-Latte
-    export BAT_THEME="OneHalfLight"
+    kitty +kitten themes --reload-in=all Gruvbox Light
+    export BAT_THEME="gruvbox-light"
 }
 alias dark=dark
 alias light=light

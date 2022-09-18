@@ -12,33 +12,23 @@ vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_s
 vim.api.nvim_command("set ignorecase")
 
 -- Colorscheme
-local lualine = "~/.config/nvim/lua/vt/lualine.lua"
-function light()
-  global.background = "light"
-  vim.g.catppuccin_flavour = "latte"
-  vim.api.nvim_command("colorscheme catppuccin")
-  vim.fn.system([[sed -i "s/theme.*/theme = 'onelight',/g" ]] .. lualine)
-end
-
-function dark()
-  global.background = "dark"
-  vim.api.nvim_command("colorscheme gruvbox")
-  vim.fn.system([[sed -i "s/theme.*/theme = 'gruvbox',/g" ]] .. lualine)
-end
-
 function getTheme()
-  return vim.fn.system([[cat ~/.config/kitty/current-theme.conf | grep name: | awk '{print $3}']]):match("^%s*(.-)%s*$")
+  return vim.fn.system([[cat ~/.config/kitty/current-theme.conf | grep name: | awk '{print $4}']]):match("^%s*(.-)%s*$")
 end
 
 function setTheme()
   local theme = getTheme()
+  local lualine = "~/.config/nvim/lua/vt/lualine.lua"
 
-  if theme == "Gruvbox" then
-    dark()
+  if theme == "Dark" then
+    global.background = "dark"
+    vim.fn.system([[sed -i "s/theme.*/theme = 'gruvbox_dark',/g" ]] .. lualine)
   else
-    light()
+    global.background = "light"
+    vim.fn.system([[sed -i "s/theme.*/theme = 'gruvbox_light',/g" ]] .. lualine)
   end
 
+  vim.api.nvim_command("colorscheme gruvbox")
   vim.api.nvim_command("luafile " .. lualine)
 end
 
