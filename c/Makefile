@@ -2,8 +2,9 @@ MAKEFLAGS += --silent
 
 flags := -Wall -Wextra -Wshadow -Wpedantic
 files := $(shell find . -name '*.c')
-target := exit
+# target := exit
 
+.PHONY: all run check clean exit
 all: check run
 
 check:
@@ -21,5 +22,3 @@ $(target): $(files)
 
 clean:
 	rm -rf $(files) $(target)
-
-.PHONY: all run check clean
