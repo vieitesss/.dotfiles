@@ -21,4 +21,4 @@ $(target): $(files)
 	gcc $(flags) $(files) -o $(target)
 
 clean:
-	rm -rf $(files) $(target)
+	rm -rf $(target)

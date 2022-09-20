@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # List directory contents
 alias ls='exa -l --group-directories-first'
 alias sl=ls
