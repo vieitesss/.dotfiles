@@ -50,7 +50,7 @@ global.shiftround = true
 
 -- Numbers
 window.number = true
--- window.relativenumber = true
+window.relativenumber = true
 
 -- Lines
 window.wrap = false
