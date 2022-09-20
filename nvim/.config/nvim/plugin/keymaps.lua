@@ -91,7 +91,10 @@ keymap('i', 'jk', '<Esc>', {})
 ------------------
 
 -- quit
-keymap('v', 'oo', '<Esc>', {})
+keymap('v', '<Leader>o', '<Esc>', {})
+
+-- paste without losing previous paste
+keymap('v', '<Leader>p', '\"_dP', {})
 
 -- move lines
 keymap('v', 'J', ':m \'>+1<CR>gv=gv')
