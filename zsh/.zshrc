@@ -88,3 +88,5 @@ export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.dit/*'"
 export FZF_CTRL_T_COMMAND="find . -type f -not -path '*/\.dit/*'"
 
 # precmd () {print -Pn "\e]0;%~\a"}
+-e 
+alias luamake=/home/vieites/lua-language-server/3rd/luamake/luamake

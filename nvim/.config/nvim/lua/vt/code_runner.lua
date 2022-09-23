@@ -1,4 +1,7 @@
-require("code_runner").setup {
+local status, cr = pcall(require, 'code_runner')
+if (not status) then return end
+
+cr.setup {
   startinsert = true,
   term = {
     size = 50,
