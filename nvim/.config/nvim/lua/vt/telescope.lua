@@ -1,6 +1,8 @@
-local telescope = require("telescope")
-local actions   = require("telescope.actions")
-local builtin   = require("telescope.builtin")
+local status, telescope = pcall(require, 'telescope')
+if not status then return end
+
+local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 telescope.setup {
   defaults = {
