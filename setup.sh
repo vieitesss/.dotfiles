@@ -22,7 +22,7 @@ error () {
 }
 
 install-basics () {
-basics=("bat" "cargo" "flameshot" "git" "ibus" "stow" "bspwm" "sxhkd" "curl" "wget" "brightnessctl")
+basics=("kitty" "bat" "cargo" "flameshot" "git" "ibus" "stow" "bspwm" "sxhkd" "curl" "wget" "brightnessctl")
 
 for b in "${basics[@]}"; do
     which $b; if [[ "$(echo $?)" -eq "0" ]]; then
@@ -31,7 +31,7 @@ for b in "${basics[@]}"; do
         printf "${BLUE}%-14s ${RED}%3s${NC}\n" $b "[X]"
         printf "${ORANGE}Installing $b... ${NC}\n" $b
 
-        apt install "$b" > /dev/null 2>&1
+        sudo apt install "$b" > /dev/null 2>&1
 
         if [[ $? != 0 ]]; then
             error "Error installing $b"
