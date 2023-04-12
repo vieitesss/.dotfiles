@@ -1,7 +1,7 @@
-Java:
-
-Run script:
-
-```bash
-curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
-```
+Instalar las siguientes dependencias:
+- unzip
+- g++
+- npm
+- python3.10-venv
+- lua-language-server
+- ninja
